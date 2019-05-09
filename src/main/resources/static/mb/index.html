@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>新浪微博</title>
+    <link rel="shortcut icon" href="img/wbico.ico" />
+
+    <link rel="stylesheet" href="style/common.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="style/message.css">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+    <script src="script/message.min.js"></script>
+
+
+</head>
+
+<body>
+
+
+    <!-- 新浪微博 -->
+    <div class="headerBox">
+        <div class="header clearfix">
+            <div class="logo fl">
+                <a href="#"><img src="img/logo.jpg" alt="" /></a>
+            </div>
+            <div class="searchBox fl">
+                <input type="text" class="search" value="" placeholder="大家正在搜:pdd删号">
+                <a href="#" class="searchImg"><img src="img/search.png" alt="" /></a>
+            </div>
+            <div class="navBox fl">
+                <ul>
+                    <li class="home "><a href="#" class="active">首页</a></li>
+                    <li class="find"><a href="#">发现</a></li>
+                    <li class="game"><a href="#">游戏</a></li>
+                    <li class=user><a href="#">Lihua</a></li>
+                </ul>
+            </div>
+            <div class="settings fl clearfix">
+                <div class="set fl">
+                    <a id="message"  href="#"><img src="img/mess_icon.png" alt="" /></a>
+                </div>
+              <div class="set fl">
+                    <a id="logout" href="#"><img src="img/logout.png" alt="" /></a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="main clearfix">
+        <div class="mainLeft fl">
+            <div class="leftNav">
+                <div class="leftNav_t">
+                    <ul>
+                        <li><a id="homePage" href="#">首页</a></li>
+<!--                        <li><a href="#">消息</a></li>-->
+                        <li><a id="markFolder" href="#">收藏</a></li>
+                        <li><a id="feedBack"  href="#">建议</a></li>
+                    </ul>
+                </div>
+                <div class="leftNav_line">
+                    <fieldset>
+                        <legend>
+                            <a href="#"><img src="img/guanli.png" alt="" /></a>
+                        </legend>
+                    </fieldset>
+                </div>
+                <div class="leftNav_b">
+                    <ul>
+                        <li><a id="followList" href="#">我的关注</a></li>
+                        <li><a id="fansList" href="#">关注我的</a></li>
+                        <li><a id="blackList" href="#">黑名单</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="mainRight fl clearfix">
+            <div class="mainRight_l fl">
+                <!-- 发表框 -->
+                <div class="publish">
+                    <div class="pub_title clearfix">
+                        <div class="tit fl"><img src="" alt="" /></div>
+                        <div class="keys fr">
+                            <a href="#">百度医疗推广被曝日进数千万,莆田系与某医院合同曝光</a>
+                            <a class="tit_hot" href="#">热门</a>
+                        </div>
+                        <div class="textNum">
+                            <p>还可以输入<em class="num">140</em>字</p>
+                        </div>
+                        <div class="textErrorNum">
+                            <p>已超出 <em class="errorNum">50</em>字</p>
+                        </div>
+                    </div>
+                    <div class="pub_text">
+                        <textarea  id="content" class="w_input" rows="4" cols="40"></textarea>
+                    </div>
+                    <div class="pub_tool clearfix">
+                        <div class="tool fl"><ul>
+                            <li>
+                                <input multiple="multiple" style="display: none" id="imgUpload" class="img" type="file" accept="image/gif, image/jpeg"  >
+                                <a id="up" href="#" class="img">图片</a>
+                            </li>
+                            <li>
+                                <select name="visibility" id="visibility">
+                                    <option value="3">公开</option>
+                                    <option value="2">关注可见</option>
+                                    <option value="1">自己可见</option>
+                                </select>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                        <div class="public fr clear">
+
+                            <div  class="send fr"><a id="publish" href="#">发布</a></div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 微博内容 -->
+                <div class="weiboList">
+<!--
+                    <div class="loadWeibo">
+                        <p>
+                            <a href="#" class="loadBtn">有新微博，点击加载</a>
+                        </p>
+                    </div>
+-->
+                    <div class="weiboBox">
+                        <div class="userInfoBox clearfix">
+                            <div class="userInfo_sm">
+                                <div class="userImg fl" title="Lihua">
+                                    <a href="#"><img src="img/userImg2.jpg" alt="" /></a>
+                                </div>
+                                <div class="Info fl" title="Lihua">
+                                    <h3 class="userTit"><a href="#">Sakura <img src="img/vipIcon2.png" alt="" /></a> <img src="img/lv_big.png" alt="" /></h3>
+                                    <p class="time"><em>30秒</em>前 <em>来自</em> <em><a href="#">微博weibo.com</a></em></p>
+                                </div>
+                            </div>
+                            <div class="weiboText">
+                                <p>
+                                    微博内容示例
+                                </p>
+                            </div>
+
+                        </div>
+                       <div class="weiboTool">
+                            <ul>
+                                <li><a href="#" class="collect iconNum">收藏</a></li>
+                                <li><a href="#" class="transportNum iconNum">私信</a></li>
+                                <li><a href="#" class="talkNum iconNum">评论</a></li>
+                                <li><a href="#" class="goodNum iconNum">赞</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+               <div class="loading">
+                    <div class="loadingText">
+                        <p>正在加载中，请稍侯...</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 右侧 -->
+            <div class="mainRight_r fl">
+                <!-- 用户信息 -->
+                <div class="userBox">
+                    <div class="userbg"></div>
+                    <div class="userImgBox">
+                        <a href="#"><img src="img/userImg.jpg" alt="Sakura" title="sakura" /></a>
+                    </div>
+                    <div class="userInfo">
+                        <h3 class="userid"><a href="#">李华</a> <img src="img/vipIcon.jpg" alt="" /></h3><em class="lv">LV.9</em>
+                        <div class="userInfo_list">
+                            <span class="fl userConern"><p><a href="#" class="num">159</a></p><p class="conern">关注</p></span>
+                            <span class="fl  line userFans"><p><a href="#" class="num">595</a></p><p class="fans">粉丝</p></span>
+                            <span id="myWeibo"  class="fl userWeibo"><p><a href="#" class="num">447</a></p><p class="weibo">微博</p></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 电影热映榜 -->
+                <div class="movieTalk">
+
+
+                    <div class="memberContent">
+                        <div class="memberEdit">修改</div>
+                    <div>昵称:<span id="nickname">lihua</span></div>
+                    <div>性别:<span id="gender">男</span></div>
+                    <div>地址:<span id="address">AYNU</span></div>
+                    <div>出生年月:<span id="dob">2009-09-09</span></div>
+                    <div>公司信息:<span id="company"></span></div>
+                    <div>个人介绍:<span id="introduction"></span></div>
+                    </div>
+                </div>
+                <!-- 广告 -->
+                <div class="adBox">
+                    <a href="#"><img src="img/rightAd.jpg" alt="" /></a>
+                </div>
+                <!-- 热门话题 -->
+                <div class="hotTalk">
+                    <div class="talkTit "><a href="#">热门话题</a>
+                        <p class="refuse fr"><a href="#">换一换</a></p>
+                    </div>
+                    <div class="talkList">
+                        <ul>
+                            <li><a href="#">#随手拍美食#</a><i>推荐</i></li>
+                            <li><a href="#">#欢乐颂#</a><em>25.3亿</em></li>
+                            <li><a href="#">#特工皇妃楚乔传#</a><em>7371万</em></li>
+                            <li><a href="#">#魏则西百度推广事件#</a><em>8261万</em></li>
+                            <li><a href="#">#你好五月#</a><em>1亿</em></li>
+                            <li><a href="#">#马来西亚旅行#</a><em>1189万</em></li>
+                            <li><a href="#">#新加坡旅行#</a><em>2018万</em></li>
+                            <li><a href="#">#公路之歌#</a><em>667万</em></li>
+                            <li><a href="#">#游香港拒购物被打#</a><em>19万</em></li>
+                        </ul>
+                    </div>
+                    <div class="more">
+                        <a href="#">查看更多&gt;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="test"></div>
+    </div>
+    <!-- 底部 -->
+    <div class="footer">
+        <div class="footerLink">
+            <ul class="footerTit">
+                <li>微博精彩
+                    <div class="footerText">
+                        <p><a href="#">热门微博</a></p>
+                        <p><a href="#">热门话题</a></p>
+                        <p><a href="#">名人堂</a></p>
+                        <p><a href="#">微博会员</a></p>
+                        <p><a href="#">微相册</a></p>
+                        <p><a href="#">微游戏</a></p>
+                        <p><a href="#">微指数</a></p>
+                    </div>
+                </li>
+                <li>手机玩微博
+                    <div class="footerText">
+                        <p>
+                            <a href="#"><img src="img/erwei.jpg" alt="" /></a>
+                        </p>
+                        <a href="#">扫码下载，更多版本戳这里</a>
+                    </div>
+                </li>
+                <li>认证&合作
+                    <div class="footerText">
+                        <p><a href="#">申请认证</a></p>
+                        <p><a href="#">开放平台</a></p>
+                        <p><a href="#">企业微博</a></p>
+                        <p><a href="#">链接网站</a></p>
+                        <p><a href="#">微博标识</a></p>
+                        <p><a href="#">广告服务</a></p>
+                        <p><a href="#">微博商学院</a></p>
+                    </div>
+                </li>
+                <li>微博帮助
+                    <div class="footerText">
+                        <p><a href="#">常见问题</a></p>
+                        <p><a href="#">自助服务</a></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="footerInfo">
+            <div class="weiboInfo">
+                <p>
+                    <a href="#">微博客服</a>
+                    <a href="#">意见反馈</a>
+                    <a href="#">舞弊举报</a>
+                    <a href="#">开放平台</a>
+                    <a href="#">微博招聘</a>
+                    <a href="#">新浪网导航</a>
+                    <a href="#">举报处理大厅</a>
+                </p>
+            </div>
+            <div class="weiboTel">
+                <p>
+                    服务热线：4000 960 960 （个人/企业） 服务时间9:00-21：00 4000 980 980（广告主） 服务时间9:00-18:00（按当地市话标准计算）
+                </p>
+                <p>
+                    京ICP证100780号互联网药品服务许可证互联网医疗保健许可证京网文[2014]2046-296号 京ICP备12002058号 增值电信业务经营许可证B2-20140447
+                </p>
+                <p>
+                    Copyright © 2009-2019 WEIBO AYNU WINGS 11000002000019号
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="report">
+
+        <select  class="reason">
+            <option value="色情">色情</option>
+            <option value="暴力">暴力</option>
+            <option value="政治敏感">政治敏感</option>
+            <option value="其他">其他</option>
+        </select>
+        <br>
+        <textarea class="description">
+        </textarea>
+        <br>
+        <button>确定</button>
+        <button>取消</button>
+    </div>
+
+    <div class="imSwitch">
+
+    </div>
+        <div class="im">
+            <div class="imTop">
+            <img class="imAvatar" src="img/userImg2.jpg">
+            <a class="imNickName">NMSL</a>
+            <span class=" fr imClose"><img src="img/close.png" ></span>
+        </div>
+            <div  class="imContent"></div>
+            <div class="imIn">
+            <textarea class="imInput"></textarea>
+            <span class="imSend">发送</span>
+         </div>
+    </div>
+
+</body>
+<script>
+    var ls=window.localStorage;
+    if (ls["member"]===undefined){
+        window.location="login.html"
+    }
+    var member = JSON.parse(ls["member"]);var imgPrefix="/up/";
+    var upImgUrl=null;  var wbPage=0;   var commentPage=0; var relationPage=0;
+    var contentSign="all";  var recordMap=new Map();
+
+    getMember(); getMoments(); getOffLineMsg();
+
+    console.log(recordMap.get(1))
+
+    function getMember(){
+        var member=JSON.parse(ls["member"])
+        $.ajax({
+            url:"/member/"+member.id,
+            method: "GET",
+            data:{},
+            headers: {"Content-Type": "application/json",
+                "Authorization":"Bearer "+member.appToken},
+            success: function(rs) {
+                if (rs.status!==200){
+                    $.message({message:"出现未知错误，请重新登陆",type:"warning"})
+                    window.location="login.html"
+                }else{
+                    $(".user").find("a").html(rs.nickname)
+                    memberInfo(rs.data)
+                }
+            },
+            error:function (rs) {
+                $.message({message:"出现未知错误，请重新登陆",type:"warning"})
+            }})
+    }
+    function getMoments(){
+        var member=JSON.parse(ls["member"])
+        $.ajax({
+            url:"/moment/all?page="+wbPage+"&size=10",
+            method: "GET",
+            data:{},
+            headers: {"Content-Type": "application/json",
+                "Authorization":"Bearer "+member.appToken},
+            success: function(rs) {
+                console.log(rs.data)
+                wbList(rs.data);
+                contentSign="all"
+            }
+        })
+    }
+
+
+    $("#up").click(function(){
+        $("#imgUpload").click()
+        $("#imgUpload").change(function () {
+            var selectImg=$("#imgUpload")[0].files
+            var formData=new FormData();
+            for (var i=0;i<selectImg.length;i++){
+                formData.append("files",$("#imgUpload")[0].files[i]);
+            }
+            $.ajax({
+                url:"/moment/upload",
+                method: "POST",
+                data:formData,
+                contentType:false,
+                processData:false,
+                headers: {
+                    "Authorization":"Bearer "+member.appToken,
+                    /*"Content-Type":"multipart/form-data;boundry=-aabvdfsdfds"*/
+                },
+                success: function(rs) {
+                    upImgUrl=rs.data.substr(0,rs.data.length-1)
+                    console.log(upImgUrl)
+                    $.message({message:"上传成功",type:"success"})
+
+                },
+                error:function () {
+                    $.message({message:"上传失败",type:"error"})
+                }
+            });
+        })
+    })
+    $("#publish").click(function(){
+        var content =$("#content").val()
+        var visibility=$("#visibility").val();
+        if(content==""&&upImgUrl==null){
+            $.message({message:"文字且图片为空",type:"warning"})
+        }else {
+            $.ajax({
+                url: "/moment/create",
+                method: "POST",
+                data: JSON.stringify({"content": content, "imgUrl": upImgUrl, "visibility": visibility}),
+                headers: {
+                    "Authorization": "Bearer " + member.appToken,
+                    "Content-Type": "application/json"
+                },
+                success: function (rs) {
+                    $.message({message: "发布成功"});
+                    upImgUrl = null
+                },
+            })
+        } })
+    $("#myWeibo").click(function(){
+        getMyMoments()
+        $(".leftNav_b li ").css("background-color","")
+    })
+    $("#homePage").click(function () {
+        getMember()
+        getMoments()
+        $(".leftNav_b li ").css("background-color","")
+        $(".weiboList").empty()
+
+    })
+    $("#markFolder").click(function () {
+        getMember()
+        $(".leftNav_b li ").css("background-color","")
+        $.ajax({
+            url:"/member/myFavorite",
+            method: "GET",
+            data:{},
+            dataType:"json",
+            headers: {
+                "Authorization": "Bearer " + member.appToken,
+                "Content-Type": "application/json"
+            },
+            success:function (rs) {
+                $(".weiboList").empty()
+                console.log(rs.data)
+                wbList(rs.data)
+                contentSign="myFavorite"
+            }
+        })
+    })
+
+
+    $(".weiboList").on("click","#collectBtn,#praiseBtn,#commentDiv",function(){
+        var mid=$(this).parents(".weiboTool").attr("mid")
+        var type=$(this).attr("id")
+        var target=$(this)
+        var num= parseInt($(this).text())
+
+        switch(type){
+            case "collectBtn":
+                $.ajax({
+                    url:"/moment/"+mid+"/collect",
+                    method:"post", data:{},
+                    dataType:"json",
+                    headers: {"Content-Type": "application/json",
+                        "Authorization":"Bearer "+member.appToken},
+                    success:function(rs){
+                        if (rs.data==1) {
+                            target.css("color", "#eb7350")
+                            target.html("已收藏")
+                        } else {
+                            target.css("color", "#808080")
+                            target.html("收藏")
+                        }
+                    }
+                });break
+            case "praiseBtn":
+                $.ajax({
+                    url:"/moment/"+mid+"/prise",
+                    method:"post", data:{},
+                    dataType:"json",
+                    headers: {"Content-Type": "application/json",
+                        "Authorization":"Bearer "+member.appToken},
+                    success:function(rs){
+                        if(rs.status==200){
+                            if (rs.data==1) {
+                                target.css("color", "#eb7350")
+                                target.html(num+1)
+                            } else {
+                                target.css("color", "#808080")
+                                target.html(num-1)
+                            }
+                        }else{
+                            $.message({"message":rs.msg,"type":"error"})
+                        }
+                    }
+                });break
+            case "commentDiv":
+                if(!target.parents(".weiboTool").next().hasClass("comment")){
+                    $.ajax({
+                        url:"/moment/"+mid+"/comments?page="+commentPage+"&size=5",
+                        method:"GET", data:{},
+                        dataType:"json",
+                        headers: {"Content-Type": "application/json",
+                            "Authorization":"Bearer "+member.appToken},
+                        success:function (rs) {
+                            console.log(rs)
+                            commentList(rs.data,target)
+                        }
+
+                    })
+                }else{
+                    target.parents(".weiboTool").next().remove()
+                }
+        }
+    })
+    $(".weiboList").on("click","#comment",function () {
+        var t=$(this)
+        var input=$(this).prev().val()
+        if(input=="")
+            $.message({"message":"评论为空","type":"warning"})
+        else{
+            var momentId=$(this).parents(".weiboBox").find(".weiboTool").attr("mid")
+            var authorId=$(this).parents(".weiboBox").attr("aid")
+
+            $.ajax({
+                url:"/moment/comment",
+                method: "POST",
+                data: JSON.stringify({"momentId":momentId,"fromId":member.id,"toId":authorId,"content":input,"parentId":0}),
+                dataType:"json",
+                headers: {
+                    "Authorization": "Bearer " + member.appToken,
+                    "Content-Type": "application/json"
+                },
+                success:function (rs) {
+                    $(this).prev().val("")
+                    getComments(momentId,t)
+                }
+            })
+        }
+    })
+    $(".weiboList").on("click","#replyBtn",function () {
+        var momentId=$(this).parents(".weiboBox").find(".weiboTool").attr("mid")
+        var parent= $(this).parent()
+        var toId=null; var parentId=null
+        var content=$(this).prev().val()
+
+        var inputLength=0;
+        if(parent.prev().hasClass("reply")){
+            parentId=parent.prev().attr("pid");
+            toId=parent.prev().find("a").first().attr("fid")
+            inputLength=parent.prev().find("a").first().text().length
+        }else{
+            toId=parent.prev().attr("fid")
+            parentId=parent.prev().attr("pid")
+            inputLength=parent.prev().find(".commentName").text().length
+        }
+        content=content.substr(inputLength+3,content.length)
+
+        $.ajax({
+            url:"/moment/comment",
+            method: "POST",
+            data: JSON.stringify({"momentId":momentId,"fromId":member.id,"toId":toId,"content":content,"parentId":parentId}),
+            dataType:"json",
+            headers: {
+                "Authorization": "Bearer " + member.appToken,
+                "Content-Type": "application/json"
+            },
+            success:function (rs)  {
+                getComments(momentId,parent)
+            }
+        })
+    })
+    $(".weiboList").on("click","#reply",function () {
+        if(!$(this).parents(".commentItem").next().hasClass("dynamicReply")) {
+
+
+            var middle="回复"
+            var rps = '<div class="dynamicReply">' +
+                '<textarea class="dynamicReplyInput" placeholder=>'
+            var rpe='</textarea><button id="replyBtn"class="commentBtn">回复</button>' +'</div>'
+            if ($(this).parent().hasClass("reply")) {
+                middle+=$(this).parent().find(".commentName").first().text()
+
+                $(this).parents(".reply").after(rps+middle+":"+rpe)
+            } else {
+                middle+=$(this).parents(".commentItem").find(".commentName").first().text()
+                $(this).parents(".commentItem").after(rps+middle+":"+rpe)
+            }
+        }else{
+            $(this).parents(".commentItem").next().remove()
+        }
+    })
+    $(".weiboList").on("click","#edit",function () {
+        var editDiv =$(this).next();
+        var aid=$(this).parents(".weiboBox").attr("aid")
+        if (editDiv.css("display")=="none") {
+            editDiv.css("display","block")
+            switch (contentSign) {
+                case "myself":{
+                    var item="<ul class='editUl'><li>删除</li><li>自己可见</li><li>关注可见</li></ul>"
+                    editDiv.html(item)
+                };break
+                case "all":;
+                case "myFavorite":{
+                    $.ajax({
+                        url:"/relation/"+aid,
+                        method: "GET",
+                        data: {},
+                        dataType:"json",
+                        headers: {
+                            "Authorization": "Bearer " + member.appToken,
+                            "Content-Type": "application/json"
+                        },
+                        success:function (rs)  {
+                            var item="<ul class='editUl'><li>举报</li><li>关注用户</li><li>拉黑用户</li></ul>"
+                            if(rs.data==1||rs.data==3){
+                                item="<ul class='editUl'><li>举报</li><li>取消关注</li><li>拉黑用户</li></ul>"
+                            }
+                            editDiv.html(item)
+                        }
+                    })
+                }
+            }
+        }else{
+            editDiv.css("display","none")
+        }
+    })
+    $(".weiboList").on("click",".editUl li",function () {
+        var text=$(this).text()
+        var index=$(this).index()
+        var momentId=$(this).parents(".weiboBox").find(".weiboTool").attr("mid")
+        var authorId=$(this).parents(".weiboBox").attr("aid")
+        var avatar=$(this).parents(".weiboBox").find(".avatar").attr("src")
+        var nickname=$(this).parents(".weiboBox").find(".userTit a").html()
+        if (contentSign=="myself") {
+            $.ajax({
+                url:"/moment/"+momentId+"/"+index,
+                method: "PUT",
+                data: {},
+                dataType:"json",
+                headers: {
+                    "Authorization": "Bearer " + member.appToken,
+                    "Content-Type": "application/json"
+                },
+                success:function (rs)  {
+                    getMyMoments()
+                }
+            })
+        }else {
+            var req = "follow"
+            if (text == "取消关注"){req = "unfollow"}
+            if (text == "拉黑用户") {req = "block"}
+            if (text=="举报"){
+
+                $(".report textarea").val("")
+                $(".report").css("display","block")
+                $(".report button").click(function () {
+                    var reason=$(".reason").val()
+                    var description=$(".description").val()
+                    var select=$(this).html()
+                    if (select="确定"){
+                        $.ajax({
+                            url: "/moment/report",
+                            method: "POST",
+                            data: JSON.stringify({"reportMemberId":authorId,"momentId":momentId,"description":description,"reason":reason}),
+                            dataType: "json",
+                            headers: {
+                                "Authorization": "Bearer " + member.appToken,
+                                "Content-Type": "application/json"
+                            }/*,
+                            success: function (rs) {
+                                $(".weiboList").empty()
+                                getMoments()
+                            }*/
+                        })
+                    }
+                    $(".report").css("display","none")
+                    $(".description").html("")
+                })
+
+                return;
+            }
+            $.ajax({
+                url: "/relation/" + req + "/" + authorId,
+                method: "POST",
+                data: {},
+                dataType: "json",
+                headers: {
+                    "Authorization": "Bearer " + member.appToken,
+                    "Content-Type": "application/json"
+                },
+                success: function (rs) {
+                    $(".weiboList").empty()
+                    getMoments()
+                }
+            })
+        }
+    })
+    $(".weiboList").on("click"," #next,#prev",function () {
+        var  reqType=$(this).parent().attr("class")
+        var  clickType = $(this).attr("id")
+        if (reqType=="commentPage"){
+                var mid = $(this).parents(".weiboBox").find(".weiboTool").attr("mid")
+                commentPage += 1
+                if (clickType == "prev") {commentPage -= 2;}
+                if (commentPage<0) {
+                    $.message({"message": "已到达首页", "type": "warning"})
+                }else{
+                    getComments(mid, $(this))
+                }
+        }else{
+
+               relationPage+=1;
+               if (clickType=="prev"){relationPage-=2;}
+
+               if (relationPage<0) {
+                  $.message({"message": "已到达首页", "type": "warning"})
+               }else {
+                  getRelationList(contentSign)
+               }
+        }
+    })
+
+
+    function commentList(rs,target){
+        var wb =target.parents(".weiboBox")
+        var cl="";
+        rs.forEach(function (x) {
+            var time= x.time.toString().substr(0,x.time.toString().length-3)
+            var reply=""
+
+            cl+='<div class="commentItem" pid='+x.id+' fid='+x.fromId+'>'
+                +'<img class="commentItemAvatar" src='+(imgPrefix+x.avatarUrl)+'/>'
+                +'<div class="commentContent"><a class="commentName">'+x.fromName+'</a>:'+x.content+'</div>'
+                +'<div class="commentTime"><a class="fl">'+getWeiboTime(time)+'</a><a id=reply class="fr">回复</a></div>'
+                +'</div>'
+
+            x.replyList.forEach(function (x) {
+                reply+='<div class="reply" pid='+x.parentId+'>'
+                    +'<a fid='+x.fromId+' class="commentName">'+x.fromName+'</a> 回复 '
+                    +'<a tid='+x.toId+' class="commentName">'+x.toName+'</a> : '+x.content
+                    +'<a id="reply" class="fr">回复</a>'
+                    +'</div>'
+            })
+            cl+=reply
+        })
+
+        var comments = '<div class="comment"><div class="commentTop"> ' +
+            '<img class="commentAvatar" src=' + imgPrefix + member.avatarUrl + '>'
+            + '<textarea class="commentInput"></textarea>'
+            +'<button id="comment" class="commentBtn">发布</button></div>'
+            +cl
+            +'<div class="commentPage "><span id="prev">上一页</span><span id="next">下一页</span></div>'
+            + '</div>'
+
+        wb.append(comments)
+
+    }
+    function memberInfo(rs) {
+
+        $(".userid").find("a").html(rs.nickname)
+        $(".userConern").find("a").html(rs.followingCount)
+        $(".userFans").find("a").html(rs.fansCount)
+        $(".userWeibo").find("a").html(rs.momentsCount)
+        $(".userImgBox").find("img").attr("src",imgPrefix+rs.avatarUrl)
+        if (rs.id!=member.id){
+            $(".memberEdit").remove()
+        }
+        $("#nickname").html(rs.nickname)
+        $("#address").html(rs.address)
+        $("#gender").html(rs.gender)
+        $("#company").html(rs.company)
+        $("#dob").html(rs.dob)
+        $("#introduction").html(rs.introduction)
+    }
+    function wbList(rs) {
+
+        rs.forEach(function (m) {
+            var avatar=(m.avatarUrl===null) ? "img/userImg2.jpg":imgPrefix+m.avatarUrl;
+            var time= m.time.toString().substr(0,m.time.toString().length-3)
+
+            var imgDiv="<div class='wbImgDiv'>"
+            if (m.imgUrl!==null) {
+                var urlArr = m.imgUrl.split("-")
+                if (urlArr.length == 1) {
+                    var url = imgPrefix + urlArr[0]
+                    imgDiv += ("<img class=singleImg src=" + url + ">" + "</div>")
+
+                }else{
+                    for (var x in urlArr){
+                        var url=imgPrefix+urlArr[x]
+                        imgDiv+=("<img class=multiImg src="+url+">")
+                    }
+                    imgDiv+="</div>"
+                }
+            }else{
+                imgDiv="<div></div>"
+            }
+
+            var collect=m.isMark==0?"收藏":"已收藏"
+
+            var wb ='<div class="weiboBox" aid='+m.memberId+'> <div class="userInfoBox clearfix"> <div class="userInfo_sm"><div class="userImg fl">'
+                +'<a><img class="avatar" src='+ avatar +'/></a></div><div class="Info fl">'
+                +'<h3 class="userTit"><a>'+ m.nickname +'</a>'
+                +'</h3><p class="time"><em>'+getWeiboTime(time)+'</em> <em>来自</em><em><a>微博weibo.com</a></em></p> </div> '
+                + '<a id="edit" class="fr editIcon"><img src="img/pull.png"></a>'
+                + '<div class="layer fr"></div></div>'
+                +'<div class="weiboText"> <p>'+m.content +'</p> </div>'
+                +imgDiv+'</div>'
+                +'<div class="weiboTool" mid='+m.id+'><ul>'
+                +'<li><a id="collectBtn" class="collect iconNum">'+collect+'</a></li>'
+                +'<li><a id="imBtn" class="transportNum iconNum">私信</a></li>'
+                +'<li><a id="commentDiv" class="talkNum iconNum">'+m.commentNum+'</a></li>'
+                +'<li><a id="praiseBtn" class="goodNum iconNum">'+m.starNum+'</a></li> </ul> </div> </div>'
+
+            $(".weiboList").append(wb)
+
+            if(m.isMark==1){
+
+                $("div[mid="+m.id+"]").find(".collect").css("color","#eb7350")
+                $("div[mid="+m.id+"]").find(".collect").html("已收藏")
+            }
+            if(m.isPraise==1) {
+                $("div[mid="+m.id+"]").find(".goodNum").css("color", "#eb7350")
+            }
+        })
+    }
+    function getWeiboTime(t) {
+        var nowTime = new Date();
+        nowTime = nowTime.getTime() / 1000;
+        var time = nowTime - t;
+        var day = Math.round((parseInt(time) / (60 * 60 * 24)));
+        var str = "";
+        if (time < 30) {
+            str = "刚刚";
+        } else if (time < 60 && time > 30) {
+            str = Math.round(time) + "秒前";
+        } else if (time < 60 * 60) {
+            str = Math.round((parseInt(time) / 60)) + "分钟前";
+        } else if (time < 60 * 60 * 24) {
+            str = Math.round((parseInt(time) / (60 * 60))) + "小时前";
+        } else if (time < 60 * 60 * 24 * 3) {
+            if (day == 1) {
+                str = "昨天";
+            } else {
+                str = day + "天前";
+            }
+        } else {
+            str = day + "天前";
+        }
+        return str;
+    }
+    function getMyMoments() {
+        $.ajax({
+            url:"/member/myMoments",
+            method: "GET",
+            data:{},
+            dataType:"json",
+            headers: {
+                "Authorization": "Bearer " + member.appToken,
+                "Content-Type": "application/json"
+            },
+            success:function (rs) {
+                $(".weiboList").empty();
+                wbList(rs.data)
+                contentSign="myself"
+            }
+        })
+    }
+    function getRelationMember(reqId){
+          $.ajax({
+              url:"/member/"+reqId,
+              method: "GET",
+              data:{},
+              headers: {"Content-Type": "application/json",
+                  "Authorization":"Bearer "+member.appToken},
+              success: function(rs) {
+                  console.log(rs.data)
+                  memberInfo(rs.data)
+                  $(".weiboList").empty()
+                  wbList(rs.data.moments)
+              }
+          })
+      }
+
+    $(".memberEdit").click(function (){
+          var member=JSON.parse(ls["member"])
+          var btn=$(this).html()
+          if (btn=="修改") {
+              var input = "<input class='memberInput'>"
+              $("#nickname").html(input)
+              var select = "<select><option>男</option> <option>女</option></select>"
+              $("#gender").html(select)
+              $("#company").html(input)
+              $("#address").html(input)
+              $("#dob").html(input)
+              var intro = "<textarea class='introduction'>"
+              $("#introduction").html(intro)
+              $("#nickname").find("input").val(member.nickname)
+              $("#address").find("input").val(member.address)
+              $("#introduction").find("textarea").val(member.introduction)
+              $("#company").find("input").val(member.company)
+              $("#dob").find("input").val(member.dob)
+              $(this).html("确定")
+          }else{
+              var nickname=$("#nickname").find("input").val()
+              var address=$("#address").find("input").val()
+              var introduction=$("#introduction").find("textarea").val()
+              var company=$("#company").find("input").val()
+              var dob=$("#dob").find("input").val()
+              var gender=$("#gender").find("select").val()
+              $.ajax({
+                  url:"/member/",
+                  method: "PUT",
+                  data:JSON.stringify({"nickname":nickname,"address":address,"company":company,"gender":gender,"dob":dob,"introduction":introduction}),
+                  headers: {"Content-Type": "application/json",
+                      "Authorization":"Bearer "+member.appToken},
+                  success: function(rs) {
+                      console.log(rs.data)
+                      $(".memberContent").find("input").remove()
+                      $(".memberContent").find("textarea").remove()
+                      $(".memberContent").find("select").remove()
+                      ls["member"]=JSON.stringify(rs.data)
+                      memberInfo(rs.data)
+                  },
+                  error:function (rs) {
+                      $.message({message:"出现未知错误，请重新登陆",type:"warning"})
+                  }})
+              $(this).html("修改")
+
+          }
+      })
+    $(".weiboList").on("click",".userTit",function () {
+          var aid=$(this).parents(".weiboBox").attr("aid");
+
+          getRelationMember(aid)
+    })
+    $(".leftNav_b a").click(function () {
+        var type=$(this).attr("id")
+        $(".leftNav_b li ").css("background-color","")
+        $(this).parents("li").css("background-color","rgba(255,255,255,0.3)")
+        relationPage= 0;       getRelationList(type)
+    })
+
+    function getRelationList(type) {
+        $.ajax({
+            url: "/relation/" + type+"?size=9&page="+relationPage,
+            method: "GET",
+            data: {},
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + member.appToken
+            },
+            success: function (rs) {
+                $(".weiboList").empty()
+                $(".loading").remove()
+                showRelationList(rs.data,type)
+                contentSign=type;
+                contentSign=type;
+            }
+
+        })
+    }
+    function showRelationList(rs,type) {
+
+        var b1="关注";
+        switch (type) {
+            case "followList":b1="取消关注"; break;
+            case "blackList":b1="移除";
+        }
+
+        rs.forEach(function (x) {
+            if (type=="fansList"&&(x.relation==1||x.relation==3)){
+                b1="取消关注"
+            }
+
+            var avatar=imgPrefix+x.avatarUrl
+            var item ="<div class='relationDiv' mid="+x.id+">"
+                +"<img  class='relationAvatar' src="+avatar+">"
+                +"<div class='relationName'>"+x.nickname+"</div>"
+                +"<div class='relationIntro'>"+"简介:"+x.introduction+"</div>"
+                +"<div class='relationBtn'> <span id='relationChange'>"+b1+"</span><span id='relationIm'>私信</span></div>"
+                + "</div>"
+            $(".weiboList").append(item)
+        })
+        var page='<div class="relationPage"><span id="prev">上一页</span><span id="next">下一页</span></div>'
+        $(".weiboList").append(page)
+    }
+
+    $(".weiboList").on("click","#relationChange",function () {
+        alert("22")
+        var id=$(this).parents(".relationDiv").attr("mid")
+        var type=$(this).html()
+        switch (type) {
+            case "关注":type="follow";break;
+            case "取消关注":type="unfollow";break;
+            case "移除":type="unblock";break;
+        }
+        relationChange(type,id)
+    })
+    function relationChange(type,id) {
+        $.ajax({
+            url: "/relation/" + type+"/"+id,
+            method: "POST",
+            data: {},
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + member.appToken
+            },
+            success: function (rs) {
+                $(".weiboList").empty()
+                getRelationList(contentSign)
+                contentSign=type;
+            }
+        })
+    }
+    function getComments(mid,target) {
+        $.ajax({
+            url:"/moment/"+mid+"/comments?page="+commentPage+"&size=5",
+            method:"GET", data:{},
+            dataType:"json",
+            headers: {"Content-Type": "application/json",
+                "Authorization":"Bearer "+member.appToken},
+            success:function (rs) {
+                console.log(rs)
+                commentList(rs.data,target)
+                target.parents(".comment").empty()
+            }
+
+        })
+    }
+
+
+
+
+
+    /*    var scrollValid=1;
+        $(window).scroll(function() {
+            if ($(document).scrollTop() <= 0) {
+            }
+            if ($(document).scrollTop() +300>= $(document).height() - $(window).height()) {
+
+                if (contentSign=="all"){
+                    scrollShow()
+                }
+            }
+        });
+        function scrollShow() {
+            if (scrollValid==1){
+                getMoments()
+                scrollValid=0
+            }else{
+                setTimeout(function () {
+                    scrollValid=1
+                },1000)
+            }
+        }*/
+
+
+
+        var socket = new WebSocket("ws://127.0.0.1:8080/wss/"+member.id);
+
+        socket.onopen = function() {
+            console.log("Socket 已打开")
+        };
+
+        socket.onmessage = function(message) {
+
+            var m=JSON.parse(message.data)
+            var hidden=$(".im").css("display")
+            if (m.type==1){
+
+                var imRecord='<div class="imRecvRecord">'
+                    +'<img class="imRecvAvatar" src='+imgPrefix+m.fromAvatar+'>'
+                    +'<div class="imRecvMsg">'+m.msg+'</div></div>'
+
+                if (hidden=="none"){
+                    $(".im").css("display","block")
+                    $(".imAvatar").attr("src",imgPrefix+m.fromAvatar)
+                    $(".imSend").attr("toId",m.fromId)
+                    $(".imNickName").html(m.fromNickname)
+                    var temp=recordMap.get(parseInt(m.fromId))
+                    if (temp==undefined) {
+                        $(".imContent").append(imRecord)
+                    }else{
+                     $(".imContent").append(temp+imRecord)
+                    }
+                }else {
+                    var cur = $(".imSend").attr("toId")
+
+                    if (cur == m.fromId) {
+                        $(".imContent").append(imRecord)
+                        recordMap.set(parseInt(m.fromId),$(".imContent").html())
+                    } else {
+                        $(".imSwitch").css("display","block")
+
+                        var a0 = '<li><img class="imSwitchAvatar"  nickname=' + $(".imNickName a").html() + ' mid=' + $(".imSend").attr("toId") + ' src=' + $(".imAvatar").attr("src") + '></li>'
+                        var a1 = '<li><img class="imSwitchAvatar"  nickname=' + m.fromNickname + ' mid=' + m.fromId + ' src=' + imgPrefix + m.fromAvatar + '></li>'
+
+                        var ll=$(".imSwitch li").length;
+                        if (ll==0) {
+                            $(".imSwitch").append(a0)
+                            $(".imSwitch").append(a1)
+                        }else{
+                            $(".imSwitch").append(a1)
+                        }
+                        var t=recordMap.get(parseInt(m.fromId))
+                        if (t==undefined) {
+                            recordMap.set(parseInt(m.fromId), imRecord)
+                        }else{
+                            recordMap.set(parseInt(m.fromId),t+imRecord)
+                        }
+                    }
+                }
+            }
+            else if (m.type==0) {
+                $.message({"message":message.msg,"type":"info"})
+            }else{
+                console.log(m.msg)
+            }
+
+        };
+
+        socket.onclose = function() {
+            console.log("Socket已关闭");
+        };
+
+        socket.onerror = function(e) {
+            console.log(e)
+            alert("Socket发生了错误");
+        }
+
+        function closeWebSocket() {
+            socket.close();
+        }
+
+        $(".imClose").click(function () {
+            var key=$(this).parents(".im").find(".imSend").attr("toId")
+            var record=$(".imContent").html()
+
+            if (record!="") {
+                recordMap.set(parseInt(key), record)
+                console.log(record)
+                console.log(recordMap)
+            }
+            $(".imContent").html("")
+            $(".imSwitch").html("")
+            $(".im").css("display","none")
+            $(".imSwitch").css("display","none")
+
+        })
+        $(".imSend").click(function () {
+            var msg=$(".imInput").val()
+            var toId=$(this).attr("toId")
+            var senderAvatar=imgPrefix+member.avatarUrl
+            if (msg!="") {
+                socket.send(JSON.stringify({"fromId": member.id, "toId": toId, "msg": msg}))
+                var imRecord='<div class="imRecord">'
+                    +'<img class="imChatAvatar" src='+senderAvatar+'>'
+                    +'<div class="imChatMsg">'+msg+'</div></div>'
+
+                $(".imContent").append(imRecord)
+                $(".imInput").val("")
+            }else{
+                $.message({"message":"消息不能为空","type":"warning"})
+            }
+        })
+
+
+    function getOffLineMsg() {
+        $.ajax({
+            url:"/msg/",
+            method:"GET", data:{},
+            dataType:"json",
+            headers: {"Content-Type": "application/json",
+                "Authorization":"Bearer "+member.appToken},
+            success:function (rs) {
+                console.log(rs.data)
+                if(rs.data.length!=0){
+                    var num="<div class='messageTip'></div>"
+                    $("#message").after(num)
+                    addOffLineMsg(rs.data)
+                }
+            }
+          })
+    }
+
+
+    $("#message").click(function () {
+        if ($(".imContent").html()!="") {
+            $(".messageTip").remove()
+            $(".im").css("display", "block")
+            $(".imSwitch").css("display", "block")
+            var l = $(".imSwitch li").length
+            if (l == 0)
+                $(".imSwitch").css("display", "none")
+
+        }})
+
+    function addOffLineMsg(rs) {
+
+        var head=rs[0]
+        $(".imAvatar").attr("src",imgPrefix+head.fromAvatar)
+        $(".imSend").attr("toId",head.fromId)
+        $(".imNickName").html(head.fromNickname)
+
+        var second=0;
+        rs.forEach(function (m) {
+
+            if (m.type==2){
+                $.message({type:"info",message:m.msg})
+            }else {
+
+                var imRecord = '<div class="imRecvRecord">'
+                    + '<img class="imRecvAvatar" src=' + imgPrefix + m.fromAvatar + '>'
+                    + '<div class="imRecvMsg">' + m.msg + '</div></div>'
+
+                if (recordMap.get(m.fromId) == undefined) {
+                    recordMap.set(m.fromId, imRecord)
+                } else {
+                    var temp = recordMap.get(m.fromId)
+                    recordMap.set(m.fromId, temp + imRecord)
+                }
+
+                if (m.fromId == head.fromId) {
+                    $(".imContent").append(imRecord)
+                } else {
+                    if (second == 0) {
+                        $(".imSwitch").css("display", "block")
+                        var avatar = '<li><img class="imSwitchAvatar" nickname=' + head.fromNickname + ' mid=' + head.fromId + ' src=' + imgPrefix + head.fromAvatar + '></li>'
+                        $(".imSwitch").append(avatar)
+                        second = 1
+                    }
+
+                    var avatar = '<li><img class="imSwitchAvatar"  nickname=' + m.fromNickname + ' mid=' + m.fromId + ' src=' + imgPrefix + m.fromAvatar + '></li>'
+                    $(".imSwitch").append(avatar)
+
+                }
+            }
+      })
+        $(".imSwitch").find("li").first().css("background","#f3f3f3")
+        $(".imSwitch").css("display","none")
+    }
+
+    $(".imSwitch").on("click","li",function () {
+        $(".imSwitch li").css("background","#d9d9d9")
+        $(this).css("background","#f3f3f3")
+        var url=$(this).find("img").attr("src")
+        var mid=$(this).find("img").attr("mid")
+        var nickname=$(this).find("img").attr("nickname")
+
+        $(".imAvatar").attr("src",url)
+        $(".imNickname").html(nickname)
+        $(".imContent").html("")
+        $(".imContent").append(recordMap.get(parseInt(mid)))
+        $(".imSend").attr("toId",mid)
+
+    })
+
+    function imShow(mid,avatar,nickname){
+        $(".im").css("display","block")
+        $(".imContent").html(recordMap.get(parseInt(mid)))
+        $(".imAvatar").attr("src",avatar)
+        $(".imNickName").html(nickname)
+        $(".imSend").attr("toId",mid)
+    }
+
+    $(".weiboList").on("click","#imBtn",function () {
+        var p=$(this).parents(".weiboBox");
+        var mid=p.attr("aid")
+        var avatar=p.find(".avatar").attr("src")
+        var nickname=p.find(".userTit").html();
+        imShow(mid,avatar,nickname)
+    })
+
+    $(".weiboList").on("click","#relationIm",function () {
+        var p=$(this).parents(".relationDiv")
+        var mid=p.attr("mid")
+        var avatar=p.find(".relationAvatar").attr("src")
+        var nickname=p.find(".relationNickname").html()
+        imShow(mid,avatar,nickname)
+    })
+
+    $(".weiboList").on("click",".relationName",function () {
+        var req =$(this).parents(".relationDiv").attr("mid")
+        getRelationMember(req)
+    })
+
+    
+    
+    $("#logout").click(function () {
+        ls.clear()
+        window.location="login.html"
+    })
+
+    $("#feedBack").click(function () {
+        $(".weiboList").empty()
+        $(".loading").remove()
+        var fb='<div class="feedBack"><textarea placeholder="向我们开发团队提供建议"></textarea><br><button class ="fr fbBtn" >确定</button></div>'
+        $(".weiboList").append(fb)
+    })
+
+
+    $(".weiboList").on("click",".feedBack button",function () {
+        var content =$(this).parent().find("textarea").val()
+        if (content==""){
+            $.message({type:"warining",message:"内容不能为空"})
+        }else{
+            $.ajax({
+                url:"/member/feedback",
+                method:"POST",
+                data:JSON.stringify({"memberId":member.id,"opinion":content}),
+                dataType:"json",
+                headers: {"Content-Type": "application/json",
+                    "Authorization":"Bearer "+member.appToken},
+                success:function (rs) {
+                    $(this).parent().find("textarea").val("")
+                    $.message({message:"提交成功",type:"success"})
+                }
+            })
+        }
+
+    })
+
+
+</script>
+
+
+</html>
