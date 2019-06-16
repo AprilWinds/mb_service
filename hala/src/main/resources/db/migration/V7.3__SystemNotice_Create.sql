@@ -1,0 +1,9 @@
+
+CREATE TABLE `system_notice`(
+     `id` BIGINT NOT NULL AUTO_INCREMENT  PRIMARY KEY ,
+     `member_id`  BIGINT NOT NULL,
+     `dynamic_id`  BIGINT NOT NULL,
+     `is_read`  TINYINT(5) NOT NULL,
+     `time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      `msg`  VARCHAR(255) NOT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

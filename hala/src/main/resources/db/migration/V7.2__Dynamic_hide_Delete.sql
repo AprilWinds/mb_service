@@ -1,0 +1,1 @@
+ALTER TABLE `dynamic` drop column `is_hide`;

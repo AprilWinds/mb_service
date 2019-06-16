@@ -1,0 +1,1 @@
+ALTER TABLE `member` ADD COLUMN `ap_token` VARCHAR(128) DEFAULT NULL after `rong_token`;

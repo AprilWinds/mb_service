@@ -1,0 +1,26 @@
+CREATE TABLE `room_insider` (
+    `id` BIGINT NOT NULL AUTO_INCREMENT,
+    `room_id` BIGINT NOT NULL,
+    `member_id` BIGINT NOT NULL,
+    `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+
+    PRIMARY KEY(id),
+    CONSTRAINT `fk_roominsider_roomid` FOREIGN KEY (room_id) REFERENCES room(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT `fk_roominsider_memberid` FOREIGN KEY (member_id) REFERENCES member(id) ON UPDATE CASCADE ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `room_follower` (
+    `id` BIGINT NOT NULL AUTO_INCREMENT,
+    `room_id` BIGINT NOT NULL,
+    `member_id` BIGINT NOT NULL,
+    `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+    `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+
+    PRIMARY KEY(id),
+    CONSTRAINT `fk_roomfollower_roomid` FOREIGN KEY (room_id) REFERENCES room(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT `fk_roomfollower_memberid` FOREIGN KEY (member_id) REFERENCES member(id) ON UPDATE CASCADE ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+ALTER table `room` add COLUMN `insider_price` INT(4) NOT NULL;

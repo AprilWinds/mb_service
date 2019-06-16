@@ -1,0 +1,23 @@
+CREATE TABLE `task` (
+    `id` BIGINT NOT NULL AUTO_INCREMENT,
+    `description` VARCHAR(254) NOT NULL,
+    `coins` INT(4) NOT NULL,
+    `icon_name` VARCHAR(16) NOT NULL,
+    `is_daily` TINYINT(1) DEFAULT 0,
+    `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+
+    PRIMARY KEY(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `member_task_log` (
+    `id` BIGINT NOT NULL AUTO_INCREMENT,
+    `member_id` BIGINT NOT NULL,
+    `task_id` BIGINT NOT NULL,
+    `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+
+    PRIMARY KEY(id),
+    CONSTRAINT `fk_membertasklog_memberid` FOREIGN KEY (member_id) REFERENCES member(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT `fk_membertasklog_taskid` FOREIGN KEY (task_id) REFERENCES task(id) ON UPDATE CASCADE ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

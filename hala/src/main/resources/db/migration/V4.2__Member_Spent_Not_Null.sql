@@ -1,0 +1,1 @@
+ALTER TABLE `member` CHANGE COLUMN `spent` `spent` INT(8) NOT NULL DEFAULT 0;

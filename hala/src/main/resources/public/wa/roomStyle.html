@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Halachat Admin Website</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <!-- Bootstrap core CSS     -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+
+</head>
+<style>
+    .imgBorder{border: 4px solid #986ada}
+</style>
+
+<body>
+
+<div class="wrapper">
+    <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+
+        <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
+
+
+        <div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="http://www.creative-tim.com" class="simple-text">
+                    Halachat
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li >
+                    <a href="dashboard.html">
+                        <i class="pe-7s-graph"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="member.html">
+                        <i class="pe-7s-user"></i>
+                        <p>用户</p>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="room.html">
+                        <i class="pe-7s-key"></i>
+                        <p>房间</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="recharge.html">
+                        <i class="pe-7s-cash"></i>
+                        <p>充值</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="feedback.html">
+                        <i class="pe-7s-note"></i>
+                        <p>反馈</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="setting.html">
+                        <i class="pe-7s-plugin"></i>
+                        <p>通用设置</p>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="report.html">
+                        <i class="pe-7s-alarm"></i>
+                        <p>举报</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="dynamicReport.html">
+                        <i class="pe-7s-car"></i>
+                        <p>动态举报</p>
+                    </a>
+                </li>
+
+                <li><a href="memberApproval.html">
+                    <i class="pe-7s-album"></i>
+                    <p>人员审批</p>
+                </a>
+                </li>
+
+                <li><a href="roomApproval.html">
+                    <i class="pe-7s-anchor"></i>
+                    <p>房间审批</p>
+                </a>
+                </li>
+
+                <li class="active"><a href="roomStyle.html">
+                    <i class="pe-7s-airplay"></i>
+                    <p>房间类型</p>
+                </a>
+                </li>
+                <li> <a href="tag.html">
+                    <i class="pe-7s-anchor"></i>
+                    <p>标签管理</p>
+                </a>
+                </li>
+                <li> <a href="fack.html">
+                    <i class="pe-7s-bookmarks"></i>
+                    <p>发布</p>
+                </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-panel">
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">房间类型</h4>
+                            </div>
+                            <div class="col-md-2.8 pull-right">
+
+                                <!--<button class="btn btn-info btn-sm"><i style="font-weight:bold;font-size: 15px" class="pe-7s-star"></i></button>
+                                <button  id="stylePrev" class="btn btn-success btn-sm"><i class="pe-7s-prev" style="font-weight:bold;font-size: 15px"></i></button>
+                                <button  id="styleNext" class="btn btn-danger  btn-sm"><i class="pe-7s-next" style="font-weight:bold;font-size: 15px"></i></button>
+                                <button  class="btn btn-primary btn-sm"><i class="pe-7s-check" style="font-weight:bold;font-size: 15px"></i></button>-->
+                            </div> <hr>
+                            <div id="styleDiv"></div>
+
+
+
+
+                            <div id="styleInfo"   style="border: #9368E9 3px solid;margin:5px;border-radius: 5px;display: none">
+                                <form  class="form-inline" style="margin: 8px;">
+                                    <div style="display: inline; margin:15px ">
+                                        id <input name="id" class="form-control" type="text" style="width:60px;height: 25px">
+                                    </div>
+                                    <div style="display: inline; margin:15px ">
+                                        name <input name="name" class="form-control" type="text" style="width:120px;height: 25px ">
+                                    </div>
+                                    <div style="display: inline; margin:15px ">
+                                        level <input name="level" class="form-control" type="text" style="width:120px;height: 25px">
+                                    </div>
+                                    <div style="display: inline; margin:15px ">
+                                        admin <input name="admin" class="form-control" type="text" style="width:120px;height: 25px;">
+                                    </div>
+
+                                    <div style="display: inline; margin:15px">
+                                        attender <input name="attender" class="form-control" type="text" style="width:120px;height: 25px">
+                                    </div>
+                                    <div style="display: inline; margin:15px">
+                                        coin<input name="coin" class="form-control" type="text" style="width:120px;height: 25px">
+                                    </div>
+                                    <input type="hidden" name="bgId">
+                                    <button  type="button" id="styleConfirm" class="btn btn-primary btn-sm">确认</button>
+                                    <button type="button" id="styleDelete"  class="btn btn-danger btn-sm">删除</button>
+                                </form>
+                                <div id="styleImg"></div>
+
+                            </div>
+
+
+
+
+                            <div class="header"><h4  class="title">图片管理</h4></div>
+                            <div id="upload-area" class="col-md-2.9 pull-right">
+                                <select id="img-type"  class="btn btn-sm">
+                                    <option value="logo">标识</option>
+                                    <option value="background">背景</option>
+                                </select>
+
+                                <button class="btn btn-info btn-sm" id="upload-select"><i style="font-weight:bold;font-size: 15px"class="pe-7s-upload"></i></button>
+                                <!--<input id="material-url" value="" class="hidden"/>-->
+
+                                <button  id="imgPrev" class="btn btn-success btn-sm"><i class="pe-7s-prev" style="  font-weight:bold;font-size: 15px"></i></button>
+                                <button  id="imgNext" class="btn btn-danger  btn-sm"><i class="pe-7s-next" style="font-weight:bold;font-size: 15px"></i></button>
+                                <button  id="imgDelete" class="btn btn-primary btn-sm"><i class="pe-7s-close" style="font-weight:bold;font-size: 15px"></i></button>
+                            </div><hr>
+
+                            <div id="img-div"  class="content table-responsive table-full-width">
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <footer class="footer">
+            <p class="copyright pull-right">
+                &copy; <script>document.write(new Date().getFullYear())</script> Halachat rights reserved
+            </p>
+        </footer>
+
+
+    </div>
+</div>
+
+
+</body>
+
+<!--   Core JS Files   -->
+<script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<script src="https://cdn.staticfile.org/qiniu-js-sdk/1.0.14-beta/qiniu.min.js" type="text/javascript"></script>
+<script src="assets/js/plupload.min.js" type="text/javascript"></script>
+<script src="assets/js/qiniu.min.js" type="text/javascript"></script>
+<script src="https://cdn.staticfile.org/plupload/3.1.0/i18n/ar.js" type="text/javascript"></script>
+
+<script>
+
+    var uploader=null;
+    var authorization = "Bearer " + getCookie("token");
+    $(function () {
+        $.fn.serializeObject = function() {
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function() {
+                if (o[this.name]) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
+        getToken();
+        findRoomStyles();
+        findRoomBackgrounds();
+        imgPagination();
+
+    })
+
+    
+    function getToken(){
+        $.ajax({
+            url : "/util/qtoken",
+            method : "GET",
+            data: {},
+            success: function(content){
+                qiniuInit(content.data.roomStyle);
+            },
+            error: function(){
+                alert("error, try again...");
+            }
+        })
+    }
+
+    var stylePage=0; var styleContent=null;
+    function  findRoomStyles () {
+        $.ajax({
+            url:"/was/roomStyles?size=10&page="+stylePage,
+            method:"GET",
+            headers:{"Authorization":authorization,
+                "Content-Type":"application/json"},
+            success:function (data) {
+                showRoomStyle(data.content)
+                styleContent=data.content
+            }
+        })
+    }
+    function showRoomStyle(data) {
+        $("#styleDiv").empty()
+        $("#styleInfo input").val("")
+        $("#styleImg").empty()
+        for (var i in data) {
+            var d = data[i]
+            var style = $("<button class='btn btn-sm'></button>").attr("index",i).css({"margin": 10}).append(d.name);
+            $("#styleDiv").append(style)
+        }
+        var add=$("<button class='btn-sm btn-primary btn'><i style='font-weight:bold;font-size: 15px'class='pe-7s-star'></i></button>").css({"margin":10}).attr("id","addStyle")
+        $("#styleDiv").append(add)
+
+
+        $("#styleDiv").on("click","button",function () {
+            $("#styleDiv button").removeClass("btn-danger")
+            $(this).addClass("btn-danger")
+            $("#styleImg").empty()
+            $("#styleInfo").fadeIn(1000)
+            var i= $(this).attr("index")
+            if (i===undefined) {
+                $("input").val("")
+                $("input[name='id']").attr({"readonly": "readonly"})
+                return
+            }
+            $("#styleInfo").fadeIn(1000)
+            $("input[name='name']").val(styleContent[i].name)
+            $("input[name='id']").val(styleContent[i].id).attr({"readonly": "readonly"})
+            $("input[name='coin']").val(styleContent[i].coin)
+            $("input[name='admin']").val(styleContent[i].admin)
+            $("input[name='attender']").val(styleContent[i].attender)
+            $("input[name='level']").val(styleContent[i].level)
+            $("input[name='coin']").val(styleContent[i].coin)
+            $("input[name='bgId']").val(styleContent[i].bgId)
+
+            var rbSet=styleContent[i].rbSet
+            for(var j in rbSet) {
+                var d=rbSet[j]
+                if (d==null) continue;
+                var img = $("<img ></img>").attr({src:d.avatarUrl,id:d.id}).css({width:70,height:70,margin:10})
+                $("#styleImg").append(img)
+            }
+        })
+        var styleRemove=new Set();
+        $("#styleImg").on("click","img",function () {
+            var id=$(this).attr("id")
+            if($(this).hasClass('imgBorder')){
+                $(this).removeClass('imgBorder')
+                styleRemove.delete(id)
+            }else {
+                $(this).addClass('imgBorder')
+                styleRemove.add(id)
+            }
+        })
+
+        $("#styleConfirm").click(function () {
+            var idArr=$("input[name='bgId']").val().split(",")
+            var idSet=new Set();
+            for (var i in idArr) idSet.add(idArr[i])
+            for (var k of styleRemove) idSet.delete(k)
+            for (var j of selectImgId) idSet.add(j)
+            var arr= Array.from(idSet)
+            if (arr[0]=="") arr.shift()
+
+            $("input[name='bgId']").val(arr.join(","))
+            if($("input[name='id']").val()==""){
+                $("input[name='id']").val(null)
+                if(confirm("确定操作吗？"))$.ajax({
+                    url:"/was/addRoomStyle",
+                    method:"post",
+                    headers:{ "Authorization":authorization,
+                            "Content-type":"application/json"},
+                    data:JSON.stringify($("form").serializeObject()),
+                    success:findRoomStyles()
+                })
+            }else if (confirm("确定操作吗？")) $.ajax({
+                url:"/was/updateRoomStyle",
+                method:"PUT",
+                headers:{"Authorization":authorization,
+                        "Content-type":"application/json"},
+                data:JSON.stringify($("form").serializeObject()),
+                success:findRoomStyles()
+            })
+
+        })
+        $("#styleDelete").click(function () {
+            if ($("input[name='id']").val()=="")  alert("您还未选中类型标签")
+            else if (confirm("确定删除吗？")) {
+                $.ajax({
+                url:"/was/deleteRoomStyle",
+                method:"post",
+                headers:{"Authorization":authorization,
+                        "Content-type":"application/json"},
+                data:JSON.stringify($("form").serializeObject()),
+                success:function () {
+                    findRoomStyles()
+                }
+
+            })}
+        })
+    }
+
+
+
+
+
+    var linkStr="";
+    var bgPage=0; var selectImgId=new Set();
+    function qiniuInit(token){
+        uploader = Qiniu.uploader({
+            runtimes: 'html5,flash,html4',
+            browse_button: 'upload-select',
+            uptoken : token,
+            get_new_uptoken: false,
+            save_key: true,
+            domain: 'pfraasynt.bkt.clouddn.com',
+            container: 'upload-area',
+            max_file_size: '100mb',
+            flash_swf_url: 'flash/Moxie.swf',
+            max_retries: 0,
+            dragdrop: false,
+            drop_element: 'container',
+            chunk_size: '4mb',
+            auto_start: true,
+            filters: {
+                mime_types : [
+                    { title : "Image files", extensions : "jpg,gif,png"}
+                ],
+                max_file_size: "4mb",
+                prevent_duplicates: true
+            },
+            init: {
+                'FilesAdded': function(up, files) {
+                    $("a#preview").addClass("hidden");
+                    plupload.each(files, function(file) {
+                        // 文件添加进队列后，处理相关的事情
+                    });
+                },
+                'BeforeUpload': function(up, file) {
+                    console.log(file);
+                },
+                'UploadProgress': function(up, file) {
+                    // 每个文件上传时，处理相关的事情
+                },
+                'FileUploaded': function(up, file, info) {
+                    // 每个文件上传成功后，处理相关的事情
+                    // 其中info是文件上传成功后，服务端返回的json，形式如：
+                    // {
+                    //    "hash": "Fh8xVqod2MQ1mocfI4S4KpRL6D98",
+                    //    "key": "gogopher.jpg"
+                    //  }
+                    // 查看简单反馈
+                    var domain = up.getOption('domain');
+                    var res = JSON.parse(info);
+                 /*   var imgType=file.type.split("/");*/
+                    var sourceLink ="http://"+ domain +"/"+ res.key/*+"."+imgType[1]*/; //获取上传成功后的文件的Url;
+
+                    //$("#material-url").val(sourceLink);
+                   // $("button#upload-select").text("上传成功");
+                    console.log(sourceLink);
+                    linkStr+=sourceLink+";";
+                },
+                'Error': function(up, err, errTip) {
+                    console.log(up);
+                    console.log(err);
+                    console.log(errTip);
+                },
+                'UploadComplete': function() {
+                    //队列文件处理完毕后，处理相关的事情
+                    console.log(linkStr)
+                    addRoomBackground(linkStr)
+                    console.log($("#img-type").val())
+                },
+                'Key': function(up, file) {
+                    // 若想在前端对每个文件的key进行个性化处理，可以配置该函数
+                    // 该配置必须要在unique_names: false，save_key: false时才生效
+                    var key = "";
+                    return key
+                }
+            }
+        });
+
+    }
+
+
+
+    function  addRoomBackground(linkStr) {
+        var  linkArr=linkStr.split(";");
+        $.ajax({
+            url:"/was/addRoomBackground?type="+$("#img-type").val(),
+            method:"post",
+            headers : {
+                "Authorization" : authorization,
+                "Content-Type" : "application/json"
+            },
+            data:JSON.stringify(linkArr),
+            success:function () {
+                findRoomBackgrounds();
+            }
+        })
+    }
+
+    function findRoomBackgrounds() {
+        $("#img-div").empty();
+        $.ajax({
+            url:"/was/roomBackgrounds?size=16&page="+bgPage,
+            method:"get",
+            headers:{"Authorization":authorization,
+                    "Content-Type":"application/json"},
+            success:function (data) {
+                showRoomBackground(data.content)
+        }
+    })}
+
+    function showRoomBackground(data) {
+        for(var i in data){
+            var d=data[i];
+            var bg=$("<img></img>").attr({"src":d.avatarUrl,"id":d.id}).css({width:126,height:126,margin:13})
+
+            $("#img-div").append(bg);
+        }
+        $("#img-div").on("click","img",function () {
+            var imgId =$(this).attr("id");
+            if($(this).hasClass('imgBorder')){
+                $(this).removeClass('imgBorder')
+                selectImgId.delete(imgId)
+            }else {
+                $(this).addClass('imgBorder')
+                selectImgId.add(imgId)
+            }
+        })
+        $("#imgDelete").click(function () {
+
+            if (selectImgId.size==0)  alert("您没有选中任何图片")
+            else
+                $.ajax({
+                    url:"/was/deleteRoomBackground",
+                    method:"post",
+                    headers: {"Authorization":authorization,
+                        "Content-Type":"application/json"},
+                    data:JSON.stringify(Array.from(selectImgId)),
+                    success: findRoomBackgrounds()
+                })
+        })
+    }
+
+
+
+
+
+    function imgPagination(){
+        $("#imgPrev").click(function(){
+            if(bgPage === 0) alert("already the first page...");
+            bgPage -= 1;
+            findRoomBackgrounds()
+        })
+        $("#imgNext").click(function(){
+            bgPage+= 1;
+            findRoomBackgrounds()
+        })
+    }
+
+
+
+
+    function getCookie(name) {
+        var value = "; " + document.cookie;
+        var parts = value.split("; " + name + "=");
+        if (parts.length == 2) return parts.pop().split(";").shift();
+    }
+</script>
+
+
+
+</html>

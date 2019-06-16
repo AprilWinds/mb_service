@@ -1,0 +1,9 @@
+CREATE TABLE  `approval` (
+		`id`   BIGINT  NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`member_id`  BIGINT NOT NULL  DEFAULT 0,
+		`room_id` 	BIGINT NOT NULL  DEFAULT 0,
+		`state`     TINYINT(1) NOT NULL DEFAULT 0,
+		`audit_count` INT(1) NOT NULL DEFAULT 0,
+		`description` VARCHAR(10) NOT NULL DEFAULT 'Default'
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

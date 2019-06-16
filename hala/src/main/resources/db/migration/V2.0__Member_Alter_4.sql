@@ -1,0 +1,1 @@
+ALTER TABLE `member` ADD COLUMN `wealth` INT(8) NOT NULL DEFAULT 0 AFTER `coins`;

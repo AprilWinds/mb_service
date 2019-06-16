@@ -1,0 +1,1 @@
+alter table `gift_giving` modify column `room_id` bigint default null;

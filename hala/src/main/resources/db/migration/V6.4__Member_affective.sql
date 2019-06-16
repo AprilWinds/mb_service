@@ -1,0 +1,1 @@
+ALTER  TABLE  `member`  ADD COLUMN  affective_state TINYINT(10);

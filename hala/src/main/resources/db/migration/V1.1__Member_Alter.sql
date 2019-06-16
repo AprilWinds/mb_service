@@ -1,0 +1,1 @@
+ALTER TABLE `member` ADD COLUMN `rong_token` VARCHAR(254) DEFAULT NULL AFTER `password`;

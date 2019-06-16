@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Halachat Admin Website</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <!-- Bootstrap core CSS     -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+</head>
+<body>
+<div class="wrapper">
+    <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+
+        <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
+
+
+        <div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="http://www.creative-tim.com" class="simple-text">
+                    Halachat
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li >
+                    <a href="dashboard.html">
+                        <i class="pe-7s-graph"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="member.html">
+                        <i class="pe-7s-user"></i>
+                        <p>用户</p>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="room.html">
+                        <i class="pe-7s-key"></i>
+                        <p>房间</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="recharge.html">
+                        <i class="pe-7s-cash"></i>
+                        <p>充值</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="feedback.html">
+                        <i class="pe-7s-note"></i>
+                        <p>反馈</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="setting.html">
+                        <i class="pe-7s-plugin"></i>
+                        <p>通用设置</p>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="report.html">
+                        <i class="pe-7s-alarm"></i>
+                        <p>举报</p>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="dynamicReport.html">
+                        <i class="pe-7s-car"></i>
+                        <p>动态举报</p>
+                    </a>
+                </li>
+
+                <li><a href="memberApproval.html">
+                    <i class="pe-7s-album"></i>
+                    <p>人员审批</p>
+                </a>
+                </li>
+
+                <li class="active"><a href="roomApproval.html">
+                    <i class="pe-7s-anchor"></i>
+                    <p>房间审批</p>
+                </a>
+                </li>
+                <li><a href="roomStyle.html">
+                    <i class="pe-7s-airplay"></i>
+                    <p>房间类型</p>
+                </a>
+                </li>
+                <li> <a href="tag.html">
+                    <i class="pe-7s-angle-up-circle"></i>
+                    <p>标签管理</p>
+                </a>
+                </li>
+                <li> <a href="fack.html">
+                    <i class="pe-7s-bookmarks"></i>
+                    <p>发布</p>
+                </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="main-panel">
+
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">房间审批</h4>
+                                <hr/>
+
+                                <button  id="waitApproved" type="button" class="btn btn-primary btn-sm">待审批</button>
+
+                                <button id="nonApproved" class="btn btn-danger btn-sm">未通过</button>
+
+                                <button id="successApproved" class="btn btn-info btn-sm">已通过</button>
+                                <span id="hint">-----待审批</span>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                    <th>房间Id</th>
+                                    <th>名称</th>
+                                    <th>头像</th>
+                                    <th>房间介绍</th>
+                                    <th>审核次数</th>
+                                    <th>描述</th>
+                                    <th>操作</th>
+                                    </thead>
+                                    <tbody>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row text-right">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-8"></div>
+                        <div class="col-md-3">
+                            <div class="col-md-6">
+                                <button class="btn btn-primary" id="prev">上一页</button>
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-primary" id="next">下一页</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <footer class="footer">
+            <p class="copyright pull-right">
+                &copy; <script>document.write(new Date().getFullYear())</script> Halachat rights reserved
+            </p>
+        </footer>
+
+
+    </div>
+</div>
+
+
+</body>
+
+<!--   Core JS Files   -->
+<script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+<script>
+    var state=0;
+    var page=0;
+    var type="room";
+    var authorization = "Bearer " + getCookie("token");
+    $(document).ready(function () {
+        btnSwitch();
+        findRoomApprovals();
+        pagination();
+    })
+
+
+
+
+    function  btnSwitch() {
+        $("#waitApproved").click(function () {
+            //alert("待审批。。。")
+            state=0;
+            console.log(state)
+            page=0;
+            $("#hint").text("-----待审批");
+            findRoomApprovals();
+        })
+
+        $("#nonApproved").click(function () {
+            //alert("未通过")
+            state=1;
+            console.log(state)
+            page=0;
+            $("#hint").text("-----未通过");
+            findRoomApprovals();
+        })
+
+        $("#successApproved").click(function () {
+            //alert("已通过")
+            state=2;
+            console.log(state)
+            page=0;
+            $("#hint").text("-----已通过");
+            findRoomApprovals();
+        })
+
+    }
+
+
+
+    function   findRoomApprovals() {
+        $("tbody").empty();
+        $.ajax({
+            url:"/was/approvals?size=10&page="+page,
+            method: "get",
+            data: {state:state,type:type},
+            headers:{ "Authorization" : authorization},
+            dataType:"json",
+            success:function (data) {
+                showRoomApprovals(data);
+            }
+
+        })
+    }
+
+
+    function  showRoomApprovals(data) {
+        for (var i in data){
+
+            var d=data[i];
+            if (d.introduction==null) d.introduction="Default";
+
+
+            var id=$("<td></td>").append(d.room.id);
+            var nickName=$("<td></td>").append(d.room.name);
+            var avatarUrl=$("<img></img>").attr({src:d.room.avatarUrl,width:70,height:70});
+            var introduction=$("<td></td>").append(d.introduction);
+            var auditCount=$("<td></td>").append(d.auditCount);
+            var description=$("<select></select>").append($("<option>Default</option>")).append($("<option>Porn</option>"))
+                .append($("<option>Spam</option>")).append($("<option>Violence</option>"))
+                .append($("<option>Illegal</option>")).append($("<option>Others</option>"));
+            var agree=$("<button  id='agree' class='btn btn-success btn-xs'></button>").append("✓");
+            var oppose=$("<button id='oppose' class='btn btn-danger btn-xs'></button>").append("✗");
+            var operate=$("<td></td>").append(agree).append(oppose);
+
+            $("<tr></tr>").append(id).append(nickName).append(avatarUrl)
+                .append(introduction).append(auditCount).append(description)
+                .append(operate).appendTo($("tbody"));
+
+            var dd=d.description;
+            $(description).find("option[text=dd]").attr("selected",true);
+
+        }
+    }
+
+
+    $("tbody").on("click","#agree",function () {
+        if(state==2) {
+            alert("已通过审批，无法继续同意审批。。。")
+        }else{
+
+            var roomId=$(this).parents('tr').find('td').eq(0).text();
+
+
+            if (confirm("确定通过审批吗？")){
+
+                $.ajax({
+                    url:"/was/updateApprovalPass/"+roomId,
+                    method:"PUT",
+                    data:type,
+                    headers:{ "Authorization" : authorization,
+                        "Content-Type" : "application/json"},
+                    success:function () {
+                        findRoomApprovals();
+                    }
+                })
+            }
+        }
+    })
+
+
+    $("tbody").on("click","#oppose",function () {
+        var roomId=$(this).parents('tr').find('td').eq(0).text();
+        var description=$(this).parents('tr').find('select').val();
+
+        if (confirm("确定拒绝通过吗？")){
+
+            $.ajax({
+                url:"/was/updateApprovalRejection/"+roomId,
+                method:"PUT",
+                data:{type:type,description:description},
+                headers:{ "Authorization" : authorization },
+                success:function () {
+                    findRoomApprovals();
+                }
+            })
+        }
+    })
+
+
+
+    function pagination(){
+        $("#prev").click(function(){
+            if(page === 0) alert("already the first page...");
+            page -= 1;
+            findMemberApprovals();
+        });
+        $("#next").click(function(){
+            page += 1;
+            findMemberApprovals();
+        });
+    }
+
+
+
+
+    function getCookie(name) {
+        var value = "; " + document.cookie;
+        var parts = value.split("; " + name + "=");
+        if (parts.length == 2) return parts.pop().split(";").shift();
+    }
+
+</script>
+
+
+</html>

@@ -1,0 +1,1 @@
+ALTER TABLE `member` ADD COLUMN `hometown` VARCHAR(16) DEFAULT NULL AFTER `gender`;

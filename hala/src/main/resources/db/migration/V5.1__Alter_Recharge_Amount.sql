@@ -1,0 +1,1 @@
+alter table `recharge` modify column amount decimal(10,2) not null;

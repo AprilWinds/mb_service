@@ -1,0 +1,1 @@
+ALTER TABLE  `system_notice` add column receive_id BIGINT NOT NULL;

@@ -1,0 +1,8 @@
+
+CREATE TABLE `drift_bottle`(
+     `id` BIGINT NOT NULL AUTO_INCREMENT  PRIMARY KEY ,
+     `sender_id`  BIGINT NOT NULL,
+     `salvage_id` BIGINT NOT NULL ,
+     `content`  VARCHAR(255) NOT NULL,
+     `time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

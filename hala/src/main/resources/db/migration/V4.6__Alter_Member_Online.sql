@@ -1,0 +1,1 @@
+ALTER TABLE `member` ADD COLUMN `is_online` TINYINT(1) DEFAULT 0 after `last_active`;

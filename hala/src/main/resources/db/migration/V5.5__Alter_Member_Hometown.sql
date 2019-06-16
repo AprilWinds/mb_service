@@ -1,0 +1,1 @@
+alter table `member` modify column `hometown` varchar(128) default null;

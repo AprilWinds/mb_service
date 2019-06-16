@@ -1,0 +1,1 @@
+alter table `recharge` add unique index `unique_outtrasactionid` (out_transaction_code);

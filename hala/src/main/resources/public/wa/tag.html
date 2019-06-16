@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="assets/img/favicon.ico">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<title>Halachat Admin Website</title>
+
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+<meta name="viewport" content="width=device-width" />
+
+
+<!-- Bootstrap core CSS     -->
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+
+<!--  Light Bootstrap Table core CSS    -->
+<link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
+
+<!--     Fonts and icons     -->
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+<style>
+    canvas{
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+
+        <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
+
+
+        <div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="http://www.creative-tim.com" class="simple-text">
+                    Halachat
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li >
+                    <a href="dashboard.html">
+                        <i class="pe-7s-graph"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="member.html">
+                        <i class="pe-7s-user"></i>
+                        <p>用户</p>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="room.html">
+                        <i class="pe-7s-key"></i>
+                        <p>房间</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="recharge.html">
+                        <i class="pe-7s-cash"></i>
+                        <p>充值</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="feedback.html">
+                        <i class="pe-7s-note"></i>
+                        <p>反馈</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="setting.html">
+                        <i class="pe-7s-plugin"></i>
+                        <p>通用设置</p>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="report.html">
+                        <i class="pe-7s-alarm"></i>
+                        <p>举报</p>
+                    </a>
+                </li>
+                <li>
+                    <a href=>
+                        <i class="pe-7s-car"></i>
+                        <p>动态举报</p>
+                    </a>
+                </li>
+
+                <li><a href="memberApproval.html">
+                    <i class="pe-7s-album"></i>
+                    <p>人员审批</p>
+                </a>
+                </li>
+
+                <li><a href="roomApproval.html">
+                    <i class="pe-7s-anchor"></i>
+                    <p>房间审批</p>
+                </a>
+                </li>
+
+                <li><a href="roomStyle.html">
+                    <i class="pe-7s-airplay"></i>
+                    <p>房间类型</p>
+                </a>
+                </li>
+
+                <li class="active"> <a href="tag.html">
+                    <i class="pe-7s-angle-up-circle"></i>
+                    <p>标签管理</p>
+                </a>
+                </li>
+                <li> <a href="fack.html">
+                    <i class="pe-7s-bookmarks"></i>
+                    <p>发布</p>
+                </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-panel">
+
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">标签管理</h4>
+                                <br/>
+                            </div>
+                            <br/><br/>
+                            <div class="content table-responsive table-full-width">
+                                <table  class="table table-hover table-striped">
+                                    <thead>
+                                    <th>ID</th>
+                                    <th>分类</th>
+                                    <th>名字</th>
+                                    <th>分类</th>
+                                    <th>名字</th>
+                                    <th>操作</th>
+                                    <thead>
+                                    <tbody>
+
+                                    </tbody>
+                                </table>
+
+
+                                <form id="tagForm">
+                                    分类<input  class="form-inline" type="text" name="category" required="required">
+                                    名字<input  class="form-inline" type="text" name="tagName" required="required">
+                                    分类<input  class="form-inline" type="text" name="arabicCategory" required="required">
+                                    名字<input  class="form-inline" type="text" name="arabicTagName" required="required">
+                                    <button class="btn btn-sm  btn-success" type="button" identifying="add">确定</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row text-right">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-8"></div>
+                        <div class="col-md-3">
+                            <div class="col-md-6">
+                                <button class="btn btn-primary " id="prev">上一页</button>
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-primary " id="next">下一页</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <footer class="footer">
+            <p class="copyright pull-right">
+                &copy; <script>document.write(new Date().getFullYear())</script> Halachat rights reserved
+            </p>
+        </footer>
+
+
+    </div>
+</div>
+
+
+</body>
+
+<!--   Core JS Files   -->
+<script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+<script src="assets/js/chart.bundle.js" type="text/javascript"></script>
+<script src="assets/js/chart.util.js" type="text/javascript"></script>
+
+<script>
+
+    var page=0;
+    var authorization="Bearer "+getCookie("token");
+    $(function () {
+        $.fn.serializeObject = function() {
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function() {
+                if (o[this.name]) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
+      findTags();
+      pagination();
+    })
+
+
+    function  findTags() {
+        $.ajax({
+            url:"/was/tags?size=10&page="+page,
+            method:"get",
+            headers:{ "Authorization" : authorization,
+                      "Content-Type":"application/json"},
+            dataType:"json",
+            success:function (data) {
+                showTags(data.content);
+            }
+        })
+    }
+
+    function  showTags(data) {
+        $("tbody").empty()
+        for (var i  in data){
+            var d=data[i]
+            var id =$("<td></td>").append(d.id)
+            var category=$("<td></td>").append(d.category)
+            var tagName=$("<td></td>").append(d.tagName)
+            var arabicCategory=$("<td></td>").append(d.arabicCategory)
+            var arabicTagName=$("<td></td>").append(d.arabicTagName);
+            var edit=$("<button id='edit' class='btn btn-primary btn-sm'></button>").append("编辑")
+            var del=$("<button id='delete' class='btn btn-danger btn-sm'></button>").append("删除")
+            var op=$("<td></td>").append(edit).append(del)
+            $("<tr></tr>").append(id).append(category).append(tagName).append(arabicCategory).append(arabicTagName).append(op).appendTo($("tbody"))
+        }
+    }
+    
+    
+    $("tbody").on("click","#delete",function () {
+        var  id =$(this).parents('tr').find('td').eq(0).text();
+        if (confirm("确认删除吗？")){
+            $.ajax({
+                url:"/was/deleteTag/"+id,
+                method:"DELETE",
+                headers:{ "Authorization" : authorization,
+                    "Content-Type":"application/json"},
+
+                success:function () {
+                    findTags()
+                }
+            })
+        }
+    })
+    
+    $("tbody").on("click","#edit",function () {
+        var id = $(this).parents('tr').find('td').eq(0).text();
+        var category= $(this).parents('tr').find('td').eq(1).text();
+        var tagName= $(this).parents('tr').find('td').eq(2).text();
+        var arabicCategory=$(this).parents('tr').find('td').eq(3).text();
+        var arabicTagName=$(this).parents('tr').find('td').eq(4).text();
+        $("#tagForm [name='category']").val(category);
+        $("#tagForm [name='tagName']").val(tagName);
+        $("#tagForm [name='arabicTagName']").val(arabicTagName);
+        $("#tagForm [name='arabicCategory']").val(arabicCategory);
+
+        $("#tagForm button").attr("id",id);
+    })
+    
+    $("#tagForm").on("click","button",function () {
+            var category=$("#tagForm [name='category']").val();
+            var tagName=$("#tagForm [name='tagName']").val();
+            var arabicTagName=$("#tagForm [name='arabicTagName']").val();
+            var arabicCategory=$("#tagForm [name='arabicCategory']").val();
+        var id=$(this).attr("id");
+        if (id!=undefined){
+            $.ajax({
+                url:"/was/updateTag",
+                method:"PUT",
+                headers:{ "Authorization" : authorization,
+                    "Content-Type":"application/json"},
+                data:JSON.stringify({"id":id,"tagName":tagName,"category":category,"arabicTagName":arabicTagName,"arabicCategory":arabicCategory}),
+                success:function () {
+                    findTags();$("#tagForm").attr("identifying","add");$("#tagForm input").val("");
+                }
+            })
+        }else{
+                $.ajax({
+                    url:"/was/addTag",
+                    method:"POST",
+                    headers:{ "Authorization" : authorization,
+                        "Content-Type":"application/json"},
+                    data:JSON.stringify($("#tagForm").serializeObject()),
+                    success:function () {
+                        $("#tagForm input").val("");
+                        findTags();
+                    }
+                })
+
+        }
+
+    })
+
+
+
+    function getCookie(name) {
+        var value = "; " + document.cookie;
+        var parts = value.split("; " + name + "=");
+        if (parts.length == 2) return parts.pop().split(";").shift();
+    }
+    function pagination(){
+        $("#imgPrev").click(function(){
+            if(page === 0) alert("already the first page...");
+            page -= 1;
+            findTags();
+        })
+        $("#imgNext").click(function(){
+              page+= 1;
+            findTags();
+        })
+    }
+
+</script>

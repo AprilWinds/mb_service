@@ -1,0 +1,12 @@
+CREATE TABLE `member_setting` (
+    `id` BIGINT NOT NULL AUTO_INCREMENT,
+    `member_id` BIGINT NOT NULL,
+    `push` INT(4) NOT NULL,
+    `distance` TINYINT(1) NOT NULL DEFAULT 1,
+    `live` TINYINT(1) NOT NULL DEFAULT 1,
+    `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+
+    PRIMARY KEY(id),
+    CONSTRAINT `fk_membersetting_memberid` FOREIGN KEY (member_id) REFERENCES member(id) ON UPDATE CASCADE ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

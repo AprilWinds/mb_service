@@ -1,0 +1,1 @@
+ALTER TABLE `room_microphone_holding` ADD COLUMN `seat_number` INT(2) NOT NULL DEFAULT 1 AFTER `onoff`;

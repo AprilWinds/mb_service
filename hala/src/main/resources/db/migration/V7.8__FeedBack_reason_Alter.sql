@@ -1,0 +1,1 @@
+ALTER  TABLE `feedback`  MODIFY  `reason`  varchar(128);

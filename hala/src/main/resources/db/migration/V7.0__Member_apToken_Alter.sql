@@ -1,0 +1,1 @@
+ALTER  TABLE `member`  MODIFY  `ap_token`  varchar(254);
