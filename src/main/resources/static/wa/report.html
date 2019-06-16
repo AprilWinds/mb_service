@@ -94,6 +94,7 @@
                                     	<th>原因</th>
                                         <th>详细描述</th>
                                         <th>图片</th>
+                                        <th>内容</th>
                                         <th>操作</th>
                                     </thead>
                                     <tbody>
@@ -182,7 +183,8 @@
                 '<td>'+d.reportMemberName+'(#'+d.reportMemberId+')</td> ' +
                 '<td>'+d.reason+'</td> ' +
                 '<td>'+d.description+'</td> ' +
-                '<td >'+img+'</td>' +
+                '<td m='+d.img+'>'+img+'</td>' +
+                '<td>'+d.content+'</td> ' +
                     '<td> <button class="btn btn-danger btn-sm">删除</button> <button class="btn btn-success btn-sm">取消</button></td>'
                 '</tr>';
             html += tmp;
@@ -238,6 +240,8 @@
           var parts = value.split("; " + name + "=");
           if (parts.length == 2) return parts.pop().split(";").shift();
       }
+
+
   </script>
 
 

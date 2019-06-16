@@ -7,6 +7,7 @@ import wings.app.microblog.entity.Member;
 import wings.app.microblog.entity.Moment;
 import wings.app.microblog.service.MemberService;
 import wings.app.microblog.util.Http;
+
 import javax.servlet.http.HttpServletRequest;
 import java.text.ParseException;
 import java.util.List;
@@ -69,6 +70,10 @@ public class MemberResource {
         memberService.feedback(feedBack);
         return  Http.standardResponse();
     }
-
+    @RequestMapping(value = "/search",method = RequestMethod.POST,produces = "application/json")
+    public  Object search(@RequestParam("keyword")String  ky,@ModelAttribute("member")Member member){
+        List<Member> search = memberService.search(ky,member);
+        return  Http.standardResponse(search);
+    }
 }
 

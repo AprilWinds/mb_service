@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+<!--
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+-->
 <html lang="en">
 
 <head>
@@ -26,7 +28,7 @@
                 <a href="#"><img src="img/logo.jpg" alt="" /></a>
             </div>
             <div class="searchBox fl">
-                <input type="text" class="search" value="" placeholder="大家正在搜:pdd删号">
+                <input type="text" class="search" value="" placeholder="大家正在搜:....">
                 <a href="#" class="searchImg"><img src="img/search.png" alt="" /></a>
             </div>
             <div class="navBox fl">
@@ -327,17 +329,23 @@
          </div>
     </div>
 
+    <div class="notification">
+        <img src="img/close.png" class="fr">
+        <div class="notificationContent">
+        公告:<span></span>
+        </div>
+    </div>
 </body>
 <script>
     var ls=window.localStorage;
-    if (ls["member"]===undefined){
-        window.location="login.html"
+    if(ls["member"]===undefined){
+        window.location="index.html"
     }
     var member = JSON.parse(ls["member"]);var imgPrefix="/up/";
     var upImgUrl=null;  var wbPage=0;   var commentPage=0; var relationPage=0;
     var contentSign="all";  var recordMap=new Map();
 
-    getMember(); getMoments(); getOffLineMsg();
+    getMember(); getMoments(); getOffLineMsg();  getNotification()
 
     console.log(recordMap.get(1))
 
@@ -350,7 +358,7 @@
             headers: {"Content-Type": "application/json",
                 "Authorization":"Bearer "+member.appToken},
             success: function(rs) {
-                if (rs.status!==200){
+                if (rs.status!=200){
                     $.message({message:"出现未知错误，请重新登陆",type:"warning"})
                     window.location="login.html"
                 }else{
@@ -431,6 +439,7 @@
         } })
     $("#myWeibo").click(function(){
         getMyMoments()
+
         $(".leftNav_b li ").css("background-color","")
     })
     $("#homePage").click(function () {
@@ -680,11 +689,10 @@
                             headers: {
                                 "Authorization": "Bearer " + member.appToken,
                                 "Content-Type": "application/json"
-                            }/*,
+                            },
                             success: function (rs) {
-                                $(".weiboList").empty()
-                                getMoments()
-                            }*/
+                              $.message({type:"success",message:"举报成功"})
+                            }
                         })
                     }
                     $(".report").css("display","none")
@@ -709,6 +717,7 @@
             })
         }
     })
+
     $(".weiboList").on("click"," #next,#prev",function () {
         var  reqType=$(this).parent().attr("class")
         var  clickType = $(this).attr("id")
@@ -812,7 +821,7 @@
 
             var collect=m.isMark==0?"收藏":"已收藏"
 
-            var wb ='<div class="weiboBox" aid='+m.memberId+'> <div class="userInfoBox clearfix"> <div class="userInfo_sm"><div class="userImg fl">'
+            var wb ='<div class="weiboBox" relation='+m.relation+' aid='+m.memberId+'> <div class="userInfoBox clearfix"> <div class="userInfo_sm"><div class="userImg fl">'
                 +'<a><img class="avatar" src='+ avatar +'/></a></div><div class="Info fl">'
                 +'<h3 class="userTit"><a>'+ m.nickname +'</a>'
                 +'</h3><p class="time"><em>'+getWeiboTime(time)+'</em> <em>来自</em><em><a>微博weibo.com</a></em></p> </div> '
@@ -988,7 +997,7 @@
             }
 
             var avatar=imgPrefix+x.avatarUrl
-            var item ="<div class='relationDiv' mid="+x.id+">"
+            var item ="<div class='relationDiv' mid="+x.id+" relation="+x.relation+">"
                 +"<img  class='relationAvatar' src="+avatar+">"
                 +"<div class='relationName'>"+x.nickname+"</div>"
                 +"<div class='relationIntro'>"+"简介:"+x.introduction+"</div>"
@@ -1129,7 +1138,8 @@
             else if (m.type==0) {
                 $.message({"message":message.msg,"type":"info"})
             }else{
-                console.log(m.msg)
+                $(".notification").css("display","block")
+                $(".notificationContent").html(m.msg)
             }
 
         };
@@ -1190,6 +1200,7 @@
             success:function (rs) {
                 console.log(rs.data)
                 if(rs.data.length!=0){
+
                     var num="<div class='messageTip'></div>"
                     $("#message").after(num)
                     addOffLineMsg(rs.data)
@@ -1211,18 +1222,14 @@
         }})
 
     function addOffLineMsg(rs) {
-
         var head=rs[0]
         $(".imAvatar").attr("src",imgPrefix+head.fromAvatar)
         $(".imSend").attr("toId",head.fromId)
         $(".imNickName").html(head.fromNickname)
 
+
         var second=0;
         rs.forEach(function (m) {
-
-            if (m.type==2){
-                $.message({type:"info",message:m.msg})
-            }else {
 
                 var imRecord = '<div class="imRecvRecord">'
                     + '<img class="imRecvAvatar" src=' + imgPrefix + m.fromAvatar + '>'
@@ -1237,19 +1244,23 @@
 
                 if (m.fromId == head.fromId) {
                     $(".imContent").append(imRecord)
-                } else {
+                } /*else if (m.toId==head.fromId){
+                    var imRecord = '<div class="imRecord">'
+                        + '<img class="imChatAvatar" src=' + imgPrefix + m.fromAvatar + '>'
+                        + '<div class="imChatMsg">' + m.msg + '</div></div>'
+
+                    $(".imContent").append(imRecord)*/
+                else {
                     if (second == 0) {
                         $(".imSwitch").css("display", "block")
                         var avatar = '<li><img class="imSwitchAvatar" nickname=' + head.fromNickname + ' mid=' + head.fromId + ' src=' + imgPrefix + head.fromAvatar + '></li>'
                         $(".imSwitch").append(avatar)
                         second = 1
                     }
-
                     var avatar = '<li><img class="imSwitchAvatar"  nickname=' + m.fromNickname + ' mid=' + m.fromId + ' src=' + imgPrefix + m.fromAvatar + '></li>'
                     $(".imSwitch").append(avatar)
-
                 }
-            }
+
       })
         $(".imSwitch").find("li").first().css("background","#f3f3f3")
         $(".imSwitch").css("display","none")
@@ -1279,22 +1290,33 @@
     }
 
     $(".weiboList").on("click","#imBtn",function () {
+
         var p=$(this).parents(".weiboBox");
-        var mid=p.attr("aid")
+        var rl=p.attr("relation")
+        if (rl==6||rl==5) {
+            $.message({type:"warning",message:"您已被拉黑，无法私聊"})
+        }else{var mid=p.attr("aid")
         var avatar=p.find(".avatar").attr("src")
         var nickname=p.find(".userTit").html();
         imShow(mid,avatar,nickname)
+        }
     })
 
     $(".weiboList").on("click","#relationIm",function () {
-        var p=$(this).parents(".relationDiv")
-        var mid=p.attr("mid")
-        var avatar=p.find(".relationAvatar").attr("src")
-        var nickname=p.find(".relationNickname").html()
-        imShow(mid,avatar,nickname)
+        var r=$(this).parents(".relationDiv").attr("relation")
+        if (r==5||r==6) {
+            $.message({type:"warning",message:"您已被拉黑，无法私信"})
+        }else {
+            var p = $(this).parents(".relationDiv")
+            var mid = p.attr("mid")
+            var avatar = p.find(".relationAvatar").attr("src")
+            var nickname = p.find(".relationNickname").html()
+            imShow(mid, avatar, nickname)
+        }
     })
 
     $(".weiboList").on("click",".relationName",function () {
+
         var req =$(this).parents(".relationDiv").attr("mid")
         getRelationMember(req)
     })
@@ -1317,7 +1339,7 @@
     $(".weiboList").on("click",".feedBack button",function () {
         var content =$(this).parent().find("textarea").val()
         if (content==""){
-            $.message({type:"warining",message:"内容不能为空"})
+            $.message({type:"warning",message:"内容不能为空"})
         }else{
             $.ajax({
                 url:"/member/feedback",
@@ -1333,6 +1355,71 @@
             })
         }
 
+    })
+
+    function getNotification() {
+        $.ajax({
+            url: "/msg/notification",
+            method: "GET",
+            data:{},
+            dataType: "json",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + member.appToken
+            },
+            success: function (rs) {
+                if (rs.data.length!=0&&rs.data!=null) {
+                    $(".notification").css("display", "block")
+                    $(".notification span").html(rs.data[0].msg)
+                    $(".notification span").attr("nid", rs.data[0].id)
+                }
+            }
+        })
+    }
+
+    $(".notification img").click(function () {
+        $(".notification").css("display","none")
+        var nid=$(this).parents(".notification").find("span").attr("nid");
+        $.ajax({
+            url:"/msg/notification/"+nid,
+            method:"DELETE",
+            data:{},
+            dataType:"json",
+            headers: {"Content-Type": "application/json",
+                "Authorization":"Bearer "+member.appToken},
+            success:function (rs) {
+
+            }
+        })
+    })
+
+
+    $(".searchImg").click(function () {
+        var content= $(this).prev().val()
+        $.ajax({
+            url:"/member/search?keyword="+content,
+            method:"POST",
+            data:{},
+            dataType:"json",
+            headers: {"Content-Type": "application/json",
+                "Authorization":"Bearer "+member.appToken},
+            success:function (rs) {
+                $(".weiboList").empty()
+                var r=rs.data
+                r.forEach(function (x) {
+
+                    var avatar=imgPrefix+x.avatarUrl
+                    var item ="<div class='relationDiv' mid="+x.id+" relation="+x.relation+">"
+                        +"<img  class='relationAvatar' src="+avatar+">"
+                        +"<div class='relationName'>"+x.nickname+"</div>"
+                        +"<div class='relationIntro'>"+"简介:"+x.introduction+"</div>"
+                        +"<div class='relationBtn'> <span id='relationIm'>私信</span></div>"
+                        + "</div>"
+                    $(".weiboList").append(item)
+                })
+
+            }
+        })
     })
 
 

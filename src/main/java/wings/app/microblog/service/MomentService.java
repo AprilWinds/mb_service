@@ -37,6 +37,9 @@ public class MomentService {
     @Autowired
     private ReportRepository reportRepo;
 
+    @Autowired
+    private RelationShipService relationShipService;
+
     public Moment createMoment(Long id, Moment moment) {
         moment.setMemberId(id);
         moment.setTime(new Date());
@@ -113,7 +116,7 @@ public class MomentService {
             momentRepo.saveAndFlush(moment);
     }
 
-    public List<Moment> getAllVisibleMoments(Long id, Pageable pageable) {
+    public List<Moment> getAllVisibleMoments(Long id, Member m, Pageable pageable) {
         List<Moment> moments = momentRepo.getAllVisibleMoments(id, pageable.getOffset(), pageable.getPageSize());
         if (moments!=null) {
             moments.forEach(x -> {
@@ -123,6 +126,8 @@ public class MomentService {
                 Integer isPrise = starRepo.findIsPrise(id, x.getId());
                 x.setIsPraise(isPrise);
                 x.setIsMark(favoriteRepo.findByCollectorId(id, x.getId()) == null ? 0 : 1);
+                Integer relation = relationShipService.getRelation(m, x.getMemberId());
+                x.setRelation(relation);
             });
         }
         return moments;

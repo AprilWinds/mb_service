@@ -1,5 +1,7 @@
 package wings.app.microblog.entity;
+
 import lombok.Data;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -40,7 +42,8 @@ public class Moment {
     @Transient
     private Integer isMark;
 
-
+    @Transient
+    private Integer relation;
 
     public enum Visibility{
         none(0),

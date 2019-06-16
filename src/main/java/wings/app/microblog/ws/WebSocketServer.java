@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 import wings.app.microblog.entity.Member;
 import wings.app.microblog.entity.Msg;
+import wings.app.microblog.entity.Notification;
 import wings.app.microblog.repository.MemberRepository;
 import wings.app.microblog.repository.MsgRepository;
+import wings.app.microblog.repository.NotificationRepository;
 
 import javax.websocket.*;
 import javax.websocket.server.PathParam;
@@ -27,6 +29,7 @@ public class WebSocketServer {
 
     private static MsgRepository    msgRepo;
     private static MemberRepository memberRepo;
+    private static NotificationRepository notificationRepo;
 
     @Autowired
     public void setMemberRepo(MemberRepository memberRepo) {
@@ -35,6 +38,10 @@ public class WebSocketServer {
     @Autowired
     public void setMsgRepo(MsgRepository msgRepo) {
         this.msgRepo = msgRepo;
+    }
+    @Autowired
+    public  void setNotificationRepo(NotificationRepository notificationRepo) {
+        this.notificationRepo = notificationRepo;
     }
 
     public static CopyOnWriteArraySet<Session> set = new CopyOnWriteArraySet<Session>();
@@ -117,7 +124,7 @@ public class WebSocketServer {
 
     }
 
-    public void sendAll(Msg msg){
+    public void sendAll(Notification msg){
         List<Long> allId = memberRepo.findAllId();
         allId.forEach(x->{
             Session session = map.get(x);
@@ -126,20 +133,20 @@ public class WebSocketServer {
                     session.getBasicRemote().sendText(new Gson().toJson(msg));
                 } catch (IOException e) {
                     e.printStackTrace();
-                    Msg  m=new Msg();
-                    m.setToId(x);
-                    m.setMsg(msg.getMsg());
-                    m.setType(msg.getType());
-                    m.setTime(msg.getTime());
-                    msgRepo.saveAndFlush(m);
+                    Notification notification=new Notification();
+                    notification.setMsg(msg.getMsg());
+                    notification.setType(2);
+                    notification.setTime(msg.getTime());
+                    notification.setReceiveId(x);
+                    notificationRepo.saveAndFlush(notification);
                 }
             }else{
-                Msg m=new Msg();
-                m.setToId(x);
-                m.setMsg(msg.getMsg());
-                m.setType(msg.getType());
-                m.setTime(msg.getTime());
-                msgRepo.saveAndFlush(m);
+                Notification notification=new Notification();
+                notification.setMsg(msg.getMsg());
+                notification.setType(2);
+                notification.setTime(msg.getTime());
+                notification.setReceiveId(x);
+                notificationRepo.saveAndFlush(notification);
             }
         });
     }

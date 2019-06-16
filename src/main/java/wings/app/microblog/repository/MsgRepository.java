@@ -12,6 +12,6 @@ import java.util.List;
 public interface MsgRepository extends JpaRepository<Msg,Long> {
 
 
-    @Query(value = "select * from msg m where m.to_id=:id order by m.time desc, m.from_id",nativeQuery = true)
+    @Query(value = "select * from msg m where m.to_id=:id order by m.time, m.from_id",nativeQuery = true)
     List<Msg> findByOffLine(@Param("id") Long id);
 }

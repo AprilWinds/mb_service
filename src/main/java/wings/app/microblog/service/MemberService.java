@@ -2,9 +2,13 @@ package wings.app.microblog.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import wings.app.microblog.entity.*;
+import wings.app.microblog.entity.Favorite;
+import wings.app.microblog.entity.Feedback;
+import wings.app.microblog.entity.Member;
+import wings.app.microblog.entity.Moment;
 import wings.app.microblog.repository.*;
 import wings.app.microblog.util.General;
+
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -109,5 +113,14 @@ public class MemberService {
     public void feedback(Feedback feedBack) {
         feedBack.setTime(new Date());
         feedBackRepo.saveAndFlush(feedBack);
+    }
+
+    public List<Member> search(String ky, Member member) {
+        List<Member> ls = memberRepo.findByKey(ky);
+        ls.forEach(x->{
+            Integer relation = relationShipService.getRelation(member, x.getId());
+            x.setRelation(relation);
+        });
+        return ls;
     }
 }

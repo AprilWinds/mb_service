@@ -32,8 +32,6 @@ public class WAService {
     @Autowired
     private FeedBackRepository feedBackRepo;
 
-    @Autowired
-    private MsgRepository msgRepo;
 
     @Autowired
     private  WebSocketServer ws;
@@ -116,12 +114,8 @@ public class WAService {
         feedBackRepo.deleteById(fid);
     }
 
-    public void publish(Msg msg) {
+    public void publish(Notification msg) {
         msg.setTime(new Date());
-        msg.setFromNickname("wings");
-        msg.setFromAvatar("");
-        msg.setToId((long) 0);
-        msg.setFromId((long) 0);
         ws.sendAll(msg);
     }
 }

@@ -654,6 +654,26 @@ a:hover{color:#eb7350}
     border:none;
 }
 
+
+.notification{
+    width:400px;
+    height:50px;
+    left:50%;
+    top:50%;
+    margin-top: -240px;
+    margin-left: -220px;
+    position:fixed;
+    background-color: white;
+    border: 1px solid #cccccc;
+    display: none;
+    border-radius: 2px;
+    z-index: 99999;
+    font-family: "微软雅黑";
+}
+
+.notificationContent{
+    margin: 20px;
+}
 /*.tip {*/
 /*    display: none;*/
 /*    background-color: #fa7d3c;*/

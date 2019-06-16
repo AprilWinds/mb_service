@@ -72,7 +72,7 @@ public class WAResource {
     }
 
     @RequestMapping(value = "/publish",method = RequestMethod.POST,produces = "application/json")
-    public Object  publish(@RequestBody Msg msg) {
+    public Object  publish(@RequestBody Notification msg) {
         waService.publish(msg);
         return Http.standardResponse();
     }

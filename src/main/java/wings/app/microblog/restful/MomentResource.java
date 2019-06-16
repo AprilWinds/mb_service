@@ -3,20 +3,20 @@ package wings.app.microblog.restful;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import wings.app.microblog.Exception.InexistenceException;
-import wings.app.microblog.entity.*;
+import wings.app.microblog.entity.Comment;
+import wings.app.microblog.entity.Member;
+import wings.app.microblog.entity.Moment;
+import wings.app.microblog.entity.Report;
 import wings.app.microblog.service.MomentService;
 import wings.app.microblog.util.ErrorCode;
 import wings.app.microblog.util.Http;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -41,11 +41,10 @@ public class MomentResource {
             for (MultipartFile file : files) {
                 int i=0;
                 File path = null;
-                try {
-                    path = new File(ResourceUtils.getURL("src/main/resources/static/up/").getPath());
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
+
+                path=new File("D://up/");
+                /* path = new File(ResourceUtils.getURL("src/main/resources/static/up/").getPath());*/
+
                 String id = member.getId().toString();
                 String date = String.valueOf(new Date().getTime());
                 String suffix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
@@ -126,7 +125,7 @@ public class MomentResource {
 
     @RequestMapping(value = "/all",method=RequestMethod.GET,produces = "application/json")
     public Object getAllVisibleMoments(@ModelAttribute("member")Member member,@PageableDefault(value = 10)Pageable pageable){
-        List<Moment> ms = momentService.getAllVisibleMoments(member.getId(), pageable);
+        List<Moment> ms = momentService.getAllVisibleMoments(member.getId(),member, pageable);
         return Http.standardResponse(ms);
     }
 
